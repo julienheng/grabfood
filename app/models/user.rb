@@ -8,4 +8,5 @@ class User < ApplicationRecord
   validates :name, uniqueness: true, presence: true
   validates :address, :phone, presence: true
   validates :email, confirmation: true, presence: true
+  validates :password, confirmation: true, presence: true
 end

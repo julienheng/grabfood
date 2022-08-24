@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: %i[show edit update destroy]
 
   def index
-    @restaurants = current_user.restaurants
+    @restaurants = Restaurant.all
   end
 
   def new
@@ -42,10 +42,6 @@ class RestaurantsController < ApplicationController
     redirect_to restaurants_path, status: :see_other
   end
 
-  def admin
-    @restaurants = current_user.restaurants
-  end
-
   private
 
   def set_restaurant
@@ -53,6 +49,6 @@ class RestaurantsController < ApplicationController
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :category, :location, :rating)
+    params.require(:restaurant).permit(:name, :category, :location, :opening_hour, :closing_hour)
   end
 end

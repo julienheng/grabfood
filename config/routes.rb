@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
+  #restaurants/id/item/index
+  #restaurants/index
+  #order/show
+
 
   resources :restaurants
 

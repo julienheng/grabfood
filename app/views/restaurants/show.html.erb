@@ -1,5 +1,11 @@
-<% if policy(@restaurant).edit? %>
-  <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %> |
-<% end %>
-<!-- [...] -->
-<%= button_to "Destroy this restaurant", @restaurant, method: :delete if policy(@restaurant).destroy? %>
+<h1>My Restaurants</h1>
+
+<div>
+  <%= @restaurant.name %>
+  <%= @restaurant.category %>
+  <%= @restaurant.location %>
+  <%= @restaurant.opening_hour %>
+  <%= @restaurant.closing_hour %>
+</div>
+
+<%=  link_to "Return to dashboard", restaurants_path(@restaurant) %>
