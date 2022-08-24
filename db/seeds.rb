@@ -7,12 +7,100 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
+require 'date'
 
-Restaurant.create(name: "Hong Kong Treasure", category: "Chinese", location: "Attleboro, MA", rating: 8)
-Restaurant.create(name: "Bagels & Cream", category: "American", location: "Singapore", rating: 10)
+OrderItem.destroy_all
+Order.destroy_all
+Item.destroy_all
+Restaurant.destroy_all
+User.destroy_all
+# --user--
 
-Item.create(name: "Lox Cream Cheese", price: 8.5, description: "smoked salmon on bagel", category: "American")
-Item.create(name: "Fried Rice", price: 6.8, description: "chinese shit", category: "Chinese")
-Item.create(name: "Three Delights", price: 10, description: "stir fried stuff", category: "Chinese")
-Item.create(name: "Bacon Egg & Cheese", price: 5.5, description: "breakfast sandwich", category: "American")
-Item.create(name: "shit", price: 0, description: "free", category: "shit")
+10.times do
+
+User.create(
+  name: Faker::Name.name,
+  address: Faker::Address.full_address,
+  phone: Faker::PhoneNumber.cell_phone,
+  email: Faker::Internet.email,
+  password: "password123",
+  is_seller: false
+)
+
+# puts "#{user.name} created..."
+rand(0..2).times do
+  Restaurant.create(
+    name: Faker::Restaurant.name,
+    location: Faker::Address.street_name,
+    category: Faker::Food.ethnic_category,
+    opening_hour: rand(6..9),
+    closing_hour: rand(14..23),
+    user_id: rand(1..10)
+  )
+
+  # puts "#{restaurant.name} created for #{user.name}"
+  Order.create(
+    delivered: false,
+    delivery_date: DateTime.now + rand(10),
+    total_cost: Faker::Number.decimal,
+    user_id: rand(1..10)
+  )
+
+rand(10).times do
+  # puts "Item and Order created"
+  item = Item.create(
+      name: Faker::Food.dish,
+      price: Faker::Number.decimal,
+      description: Faker::Food.description,
+      restaurant_id: rand(1..10)
+  )
+
+  OrderItem.create(
+    quantity: Faker::Number.decimal_part,
+    item: item,
+    item_id: rand(1..10),
+    order_id: rand(1..10)
+  )
+end
+end
+end
+
+
+# puts "Seeding completed!"
+# --------------------------------
+
+#--restaurants--
+
+# t.string "name"
+# t.string "category"
+# t.string "location"
+# t.integer "opening_hour"
+# t.integer "closing_hour"
+# t.bigint "user_id", null: false
+
+# -------------------------------
+
+#--items--
+# item = Item.create(
+#   name: Faker::Food.dish,
+#   price: Faker::Number.decimal,
+#   description: Faker::Food.description,
+#   restaurant:
+# )
+
+# # --order_items--
+
+# order = Order.new(
+#   delivered: false,
+#   delivery_date: DateTime.now + rand(10),
+#   total_cost: Faker::Number.decimal,
+#   user:
+# )
+
+# order.save!
+
+# OrderItem.create(
+#   quantity: Faker::Number.decimal_part,
+#   item:,
+#   order:
+# )
