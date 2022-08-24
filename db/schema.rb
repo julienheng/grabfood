@@ -48,8 +48,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_070839) do
     t.string "name"
     t.string "category"
     t.string "location"
-    t.time "opening_hour"
-    t.time "closing_hour"
+    t.integer "opening_hour"
+    t.integer "closing_hour"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
