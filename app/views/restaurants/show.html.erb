@@ -1,11 +1,26 @@
-<h1>My Restaurants</h1>
+<% if policy(@restaurant).edit? %>
+  <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %> |
+<% end %>
+<!-- [...] -->
+<%= button_to "Destroy this restaurant", @restaurant, method: :delete if policy(@restaurant).destroy? %>
 
-<div>
-  <%= @restaurant.name %>
-  <%= @restaurant.category %>
-  <%= @restaurant.location %>
-  <%= @restaurant.opening_hour %>
-  <%= @restaurant.closing_hour %>
+
+<div class="card-category">
+  <div class="item">
+    <%= @restaurant.photo.key? ? cl_image_tag(@restaurant.photo.key) : cl_image_tag("d6igzbqo8kp2n8kxuvgzknhs1z6o", width: 100, height: 100, crop: :fill) %>
+  </div>
+  <div class= "item">
+  <%= @restaurant.photo.key? ? cl_image_tag(@restaurant.photo.key) : cl_image_tag("d6igzbqo8kp2n8kxuvgzknhs1z6o", width: 100, height: 100, crop: :fill) %>
+  </div>
 </div>
 
-<%=  link_to "Return to dashboard", restaurants_path(@restaurant) %>
+
+
+<%# <%= @restaurant.photo.key? ? cl_image_tag(@restaurant.photo.key) : cl_image_tag("d6igzbqo8kp2n8kxuvgzknhs1z6o",
+      width: 100, height: 100, crop: :fill) %>
+
+<%= @restaurant.photo.key? ? cl_image_tag(@restaurant.photo.key) : cl_image_tag("d6igzbqo8kp2n8kxuvgzknhs1z6o",
+      width: 100, height: 100, crop: :fill) %> %>
+
+<%= @restaurant.items.first.photo.key? ? cl_image_tag(@restaurant.items.first.photo.key) : cl_image_tag("d6igzbqo8kp2n8kxuvgzknhs1z6o",
+      width: 50, height: 50, crop: :fill) %> %>

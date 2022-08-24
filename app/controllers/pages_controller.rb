@@ -6,5 +6,4 @@ class PagesController < ApplicationController
       render current_user.is_seller ? 'restaurants/index' : 'pages/home'
     end
   end
-
 end
