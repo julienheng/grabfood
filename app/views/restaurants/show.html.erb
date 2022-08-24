@@ -1,0 +1,5 @@
+<% if policy(@restaurant).edit? %>
+  <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %> |
+<% end %>
+<!-- [...] -->
+<%= button_to "Destroy this restaurant", @restaurant, method: :delete if policy(@restaurant).destroy? %>

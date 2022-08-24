@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 4ffc714029c1fe22eb0cf091295afa26cb5fa70c
+  branch: master
+  specs:
+    faker (2.22.0)
+      i18n (>= 1.8.11, < 2)
+
+GIT
   remote: https://github.com/heartcombo/simple_form.git
   revision: 31fe25504771bd6cd425b585a4e0ed652fba4521
   specs:
@@ -161,6 +169,8 @@ GEM
     public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)
+    pundit (2.2.0)
+      activesupport (>= 3.0.0)
     racc (1.6.0)
     rack (2.2.4)
     rack-test (2.0.2)
@@ -262,11 +272,13 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
+  faker!
   font-awesome-sass (~> 6.1)
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
   puma (~> 5.0)
+  pundit
   rails (~> 7.0.3, >= 7.0.3.1)
   sassc-rails
   selenium-webdriver

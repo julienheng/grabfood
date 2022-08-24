@@ -14,7 +14,6 @@ class Orderorder_itemsController < ApplicationController
     end
   end
 
-
   def destroy
     @order_item = Order_item.find(params[:id])
     @order_item.destroy
@@ -24,6 +23,6 @@ class Orderorder_itemsController < ApplicationController
   private
 
   def order_item_params
-    params.require(:order_item).permit(:quantity, :item_id, :order_id)
+    params.require(:order_item).permit(:quantity, :item_id)
   end
 end
