@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: :show
 
   def index
     @restaurants = current_user.restaurants
@@ -53,6 +54,6 @@ class RestaurantsController < ApplicationController
   end
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :category, :location, :rating)
+    params.require(:restaurant).permit(:name, :category, :location, :photo)
   end
 end

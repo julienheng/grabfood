@@ -3,3 +3,6 @@
 <% end %>
 <!-- [...] -->
 <%= button_to "Destroy this restaurant", @restaurant, method: :delete if policy(@restaurant).destroy? %>
+
+<%= @restaurant.photo.key? ? cl_image_tag(@restaurant.photo.key) : cl_image_tag("d6igzbqo8kp2n8kxuvgzknhs1z6o",
+      width: 200, height: 200, crop: :fill) %>
