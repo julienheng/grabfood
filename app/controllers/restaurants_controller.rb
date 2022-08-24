@@ -3,7 +3,7 @@ class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
 
   def index
-    @restaurants = current_user.restaurants
+    @restaurants = Restaurant.all
   end
 
   def new
@@ -41,10 +41,6 @@ class RestaurantsController < ApplicationController
     authorize @restaurant
     @restaurant = Restaurant.destroy
     redirect_to restaurants_path, status: :see_other
-  end
-
-  def admin
-    @restaurants = current_user.restaurants
   end
 
   private
