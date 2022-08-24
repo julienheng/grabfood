@@ -34,7 +34,7 @@ restaurant = Restaurant.new(
   user:
 )
 
-file = URI.open("https://onecms-res.cloudinary.com/image/upload/v1640958728/8days-migration/scrambled-egg-burger-with-chicken-data.png")
+file = URI.open("https://res.cloudinary.com/dvugbapyv/image/upload/v1661134008/cld-sample-4.jpg")
 # file = URI.open("fish.jpg")
 restaurant.photo.attach(io: file, filename: "fish.jpg", content_type: "image/jpg")
 puts "#{restaurant.name} photo attached!"
@@ -48,6 +48,13 @@ item = Item.new(
   description: "item1 desc",
   restaurant:
 )
+
+file = URI.open("https://res.cloudinary.com/dvugbapyv/image/upload/v1661325549/i0lkmnahere9nnp1p7ix.png")
+# file = URI.open("fish.jpg")
+item.photo.attach(io: file, filename: "fish.jpg", content_type: "image/jpg")
+puts "#{item.name} photo attached!"
+restaurant.save!
+puts "#{item.name} created!"
 
 item.save!
 
