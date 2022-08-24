@@ -1,5 +1,20 @@
-<h1>Home Page</h1>
+<%= render "shared/navbar" %>
 <p>Find me in app/views/pages/home.html.erb</p>
+<div class="location-container">
+  <div class="location-greeting">
+    <p>Good Evening</p>
+  </div>
+  <div class="location-description">
+    <p>Let's explore good food around you</p>
+  </div>
+  <input type="text" class="location-bar" placeholder="Search location">
+  <br>
+  <button type="button" class="btn btn-success">Success</button>
+</div>
 
-<%= link_to "Log In", new_user_session_path(@user) %>
-<%= link_to "Sign Up", new_user_registration_path(@user) %>
+<div class="category-header">
+</div>
+
+<div class="restaurant-category">
+
+</div>
