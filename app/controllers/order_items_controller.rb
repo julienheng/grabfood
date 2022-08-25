@@ -1,5 +1,9 @@
 class Orderorder_itemsController < ApplicationController
 
+  def index
+    @order_item = Order_item.all
+  end
+
   def new
     @order_item = Order_item.new
   end
