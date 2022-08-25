@@ -13,7 +13,7 @@
 </div>
 
  <div class="restaurant-card">
-  <%@restaurants.each do%>
-    <%=@restaurant.name%>
-  <%end%>
+  <% @restaurants.each do |restaurant| %>
+    <%= restaurant.name %>
+  <% end %>
  </div>

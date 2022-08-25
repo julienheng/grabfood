@@ -1,6 +1,17 @@
-<p>checkout</p>
-<p>delivery to:</p>
-<%= simple_form_for(@order) do |f| %>
-  <%= f.input :delivered %>
-  <%= f.submit %>
-<% end %>
+<div class="container align-center">
+  <h1>GrabFood</h1>
+  <p>Ready to check out?</p>
+  <p>Delivery to:</p>
+
+  <%= simple_form_for(@order) do |f| %>
+     <%= f.input :delivered %>
+
+  <% end %>
+  <%= @order.delivery_date %>
+
+  <p>Payment details</p>
+  <p>Total: $<%= @order.total_cost %></p>
+
+  <%= link_to "Edit order", orders_path(@order) %>
+  <%= link_to "Place order", edit_order_path(@order) %>
+</div>
