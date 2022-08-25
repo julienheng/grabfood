@@ -10,17 +10,13 @@ Rails.application.routes.draw do
   #restaurants/index
   #order/show
 
-
-  resources :restaurants
-
   resources :restaurants do
-    resources :items, only: %i[new create update edit]
+    resources :items, except: :show
   end
 
-  resources :orders, only: %i[new create show edit update destroy]
-
-  resources :orders do
-    resources :order_items, only: %i[new create]
+  resources :orders, except: :index do
+    resources :order_items, only: %i[index new create]
   end
+
   resources :order_items, only: %i[destroy]
 end
