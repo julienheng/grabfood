@@ -4,6 +4,8 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     authorize @order
+    @order.start_time = Time.now.beginning_of_day
+    @order.end_time = Time.now.beginning_of_day
   end
 
   def create
@@ -16,6 +18,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    authorize @order
   end
 
   def edit
