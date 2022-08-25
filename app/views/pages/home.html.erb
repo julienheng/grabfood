@@ -1,3 +1,5 @@
+
+
   <!DOCTYPE html>
 <html lang="en">
 
@@ -27,6 +29,7 @@
       <button type="button" class="btn btn-success">Search</button>
     </div>
 
+<%= button_to "Log Out", destroy_user_session_path, method: :delete  %>
 
 <%# <div class="d-flex align-items-center p10">
   <form class="d-flex">
@@ -43,11 +46,11 @@
       <% @restaurants.each do |restaurant|%>
       <div class="border p-3 border-success" >
         <div><%= image_tag "fish.jpg" %></div>
-        <p>Name: <%= link_to restaurant.name, restaurant_path(restaurant) %></p>
-        <p>Category: <%= restaurant.category %></p>
-        <p>Location <%= restaurant.location %></p>
-        <p>Opening Hour <%= restaurant.opening_hour %></p>
-        <p>Closing Hour <%= restaurant.closing_hour %></p>
+        <p><%= link_to restaurant.name, restaurant_path(restaurant) %></p>
+        <p><%= restaurant.category %></p>
+        <p><%= restaurant.location %></p>
+        <p><%= restaurant.opening_hour %></p>
+        <p><%= restaurant.closing_hour %></p>
       </div>
       <% end %>
   </div>
