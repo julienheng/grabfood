@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    authorize @order
   end
 
   def create
