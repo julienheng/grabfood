@@ -24,6 +24,13 @@ class RestaurantsController < ApplicationController
 
   def show
     authorize @restaurant
+
+    unless params.include?('order')
+      @order = Order.create!(user: current_user)
+      return redirect_to restaurant_path(@restaurant, order: @order)
+    end
+
+    @order = Order.find(params[:order])
   end
 
   def edit
