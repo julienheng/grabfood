@@ -3,6 +3,8 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @order.start_time = Time.now.beginning_of_day
+    @order.end_time = Time.now.beginning_of_day
   end
 
   def create
