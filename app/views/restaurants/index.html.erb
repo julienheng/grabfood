@@ -2,5 +2,9 @@
 <h2>Let's add some restaurants</h2>
 <p><%= link_to "Add a restaurant", new_restaurant_path(@restaurant) %></p>
 
+<% @restaurants.each do |restaurant| %>
+    <%= restaurant.name %>
+  <% end %>
+
 <%= button_to "Log Out", destroy_user_session_path, method: :delete  %>
 <%= link_to "Home page", root_path  %>
