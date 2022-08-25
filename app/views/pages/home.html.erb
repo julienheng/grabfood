@@ -12,9 +12,8 @@
   <button type="button" class="btn btn-success">Success</button>
 </div>
 
- <div class="cards">
+ <div class="restaurant-card">
+  <%@restaurants.each do%>
+    <%=@restaurant.name%>
+  <%end%>
  </div>
-
-<%= link_to "Log In", user_session_path(@user) %>
-<%= link_to "Sign Up", new_user_registration_path(@user) %>
-<%= button_to "Log Out", destroy_user_session_path, method: :delete  %>
