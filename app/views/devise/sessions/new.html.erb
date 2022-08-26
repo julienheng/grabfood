@@ -4,7 +4,6 @@
   <% end %>
   <h1 class="text-center">Login to Your Account</h1>
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
     <div class="form-inputs container1">
       <div class="sign_in">
         <%= f.input :email,
@@ -25,10 +24,6 @@
     </div>
     <div class="sign_up">
       <%= render "devise/shared/links", class: 'sign_up' %>
-      <% end %>
     </div>
-    <div class="form-actions">
-  <%= f.button :submit, "Log in" %>
- </div>
-
+  <% end %>
 </div>
