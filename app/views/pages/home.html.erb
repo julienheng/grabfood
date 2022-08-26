@@ -1,3 +1,5 @@
+
+
   <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +12,7 @@
 
   </head>
 
-  
+
   <div class="location-container">
     <div class="location-greeting">
       <p>Good Evening</p>
@@ -27,7 +29,6 @@
       <button type="button" class="btn btn-success">Search</button>
     </div>
 
-
 <%# <div class="d-flex align-items-center p10">
   <form class="d-flex">
     <input class="form-control me-1" type="search" placeholder="search for dish or a restaurant" aria-label="Search">
@@ -36,18 +37,17 @@
 </div> %>
 
  <div class="cards2">
-  <style>
-    h1 {text-align: center;}</style>
+
     <h1>Available Restaurants in <%= @restaurants.first.user.address %></h1>
-  <div class="all-restaurant d-flex gap-2 justify-content-center">
+  <div class="flex-wrap all-restaurant d-flex gap-2 justify-content-center">
       <% @restaurants.each do |restaurant|%>
       <div class="border p-3 border-success" >
         <div><%= image_tag "fish.jpg" %></div>
-        <p>Name: <%= link_to restaurant.name, restaurant_path(restaurant) %></p>
-        <p>Category: <%= restaurant.category %></p>
-        <p>Location <%= restaurant.location %></p>
-        <p>Opening Hour <%= restaurant.opening_hour %></p>
-        <p>Closing Hour <%= restaurant.closing_hour %></p>
+        <p><%= link_to restaurant.name, restaurant_path(restaurant) %></p>
+        <p><%= restaurant.category %></p>
+        <p><%= restaurant.location %></p>
+        <p><%= restaurant.opening_hour %></p>
+        <p><%= restaurant.closing_hour %></p>
       </div>
       <% end %>
   </div>

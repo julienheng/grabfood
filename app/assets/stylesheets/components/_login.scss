@@ -1,0 +1,125 @@
+body {
+  width: 100vw;
+  height: 100vh;
+
+}
+
+.big-container {
+  border: 1px solid green;
+  height: 600px;
+  width: 500px;
+  margin: auto;
+  padding: auto;
+
+}
+
+.container1 {
+  width: 30%;
+  margin: auto;
+}
+
+h1 {
+  margin-top: 70px
+}
+
+.form-actions1 {
+  border: 1px solid #2DC500;
+  width: 150px;
+  border-radius: 30px;
+  background-color: #2DC500;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.sign_in {
+  input {
+    border-radius: 10px;
+  }
+  label {
+
+  }
+}
+
+
+.submit {
+  font-weight: bolder;
+  color: white;
+  border: none;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.sign_up {
+  color: black;
+  text-align: center;
+}
+
+
+/* SIGN UP PAGE */
+
+
+.form-actions2 {
+  border: 1px solid #2DC500;
+  width: 100px;
+  border-radius: 30px;
+  background-color: #2DC500;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-left:auto;
+  margin-right: auto;
+}
+
+.signup {
+  font-weight: bolder;
+  color: white;
+  border: none;
+  text-align: center;
+
+}
+
+.form-inputs {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+
+  input {
+  border-radius: 10px;
+       }
+}
+
+.link {
+  text-align: center;
+}
+
+
+h1 {
+  position: relative;
+  bottom: 5px
+}
+
+h2 {
+  color: #00B24F;
+  margin-bottom: 10px;
+}
+
+.main-conntainer {
+  position: relative;
+}
+
+.title {
+  position: absolute;
+  top: 10px;
+  text-align: center;
+  left: 50%
+}
+
+.navbar-signup {
+  display: flex;
+  justify-content: left;
+  width: 50px;
+  margin-right: 300px
+}
