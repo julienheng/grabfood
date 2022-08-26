@@ -34,6 +34,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    # raise
     @item = Item.find(params[:id])
     @restaurant = Restaurant.find(params[:restaurant_id])
     @item.destroy

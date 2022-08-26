@@ -1,4 +1,3 @@
-
 <h1>BUYER SHOW PAGE </h1>
 <%# restaurant banner details %>
 <div class="banner">
@@ -9,7 +8,9 @@
       <p>Location: <%= @restaurant.location %></p>
       <p>Category: <%= @restaurant.category %></p>
     </div>
+    <% if user_signed_in? %>
       <%= link_to "View Confirmation", order_path(@order) %>
+    <% end %>
   </div>
 </div>
 
@@ -21,18 +22,20 @@
         <div class="card boader p-3 border-success">
           <div class="card-img"><%= image_tag "fish.jpg" %></div>
           <div class="text-center"><h4><%= item.name %></h4></div>
-
-          <div class="description"><p><%= item.description %></p></div>
-          <div class="price"><p>$<%= item.price %></p></div>
-          <%= simple_form_for [@order, @order_item] do |f| %>
-            <%= f.input :quantity, input_html: { min: 0, value:  } %>
-            <%= f.input :restaurant_id, :as => :hidden, :input_html => { :value => @restaurant.id } %>
-            <%= f.input :item_id, :as => :hidden, :input_html => { :value => item.id } %>
-            <%= f.submit "Add To Order", class: "btn btn-primary" %>
-          <% end %>
+          <div class="description text-center"><p><%= item.description %></p></div>
+          <div class="price text-center"><p>$<%= item.price %></p></div>
+            <div class="add-quantity justify-content-center">
+              <% if user_signed_in? %>
+                <%= simple_form_for [@order, @order_item] do |f| %>
+                <%= f.input :quantity, input_html: { min: 0 } %>
+                <%= f.input :restaurant_id, :as => :hidden, :input_html => { :value => @restaurant.id } %>
+                <%= f.input :item_id, :as => :hidden, :input_html => { :value => item.id } %>
+                <%= f.submit "Add item", class: "btn btn-primary align-items-center" %>
+                <% end %>
+              <% end %>
+          </div>
         </div>
       </div>
     </div>
   <% end %>
-
 </div>

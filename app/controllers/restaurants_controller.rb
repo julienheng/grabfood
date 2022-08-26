@@ -35,28 +35,38 @@ class RestaurantsController < ApplicationController
   def show
     authorize @restaurant
     @restaurants = Restaurant.all
-    @order_item = OrderItem.new
-    #@order = Order.find(params[:order])
 
     if user_signed_in?
-      render current_user.is_seller ? 'restaurants/show_seller' : 'restaurants/show'
-    else
-      render 'restaurants/show'
+      # render current_user.is_seller ? 'restaurants/show_seller' : 'restaurants/show'
+      if !current_user.is_seller?
+        @order_item = OrderItem.new
+        @order = Order.find(params[:order])
+        unless params.include?('order')
+          @order = Order.create!(user: current_user)
+          redirect_to restaurant_path(@restaurant, order: @order)
+        else
+          @order = Order.find(params[:order])
+          # raise
+          render 'restaurants/show'
+        end
+      else
+        render 'restaurants/show_seller'
+      end
+      # @order = Order.find(params[:order])
     end
+
+    #if user_signed_in?
+      #unless params.include?('order')
+        #@order = Order.create!(user: current_user)
+        #return redirect_to restaurant_path(@restaurant, order: @order)
+      #end
+
+      #@order = Order.find(params[:order])
+    #end
+
+    # redirect to seller page if current user is owner
+    # render :show_seller if @restaurant.user == current_user
   end
-
-  #   if user_signed_in?
-  #     unless params.include?('order')
-  #       @order = Order.create!(user: current_user)
-  #       return redirect_to restaurant_path(@restaurant, order: @order)
-  #     end
-
-  #     @order = Order.find(params[:order])
-  #   end
-
-  #   # redirect to seller page if current user is owner
-  #   render :show_seller if @restaurant.user == current_user
-  # end
 
   def edit
     authorize @restaurant
