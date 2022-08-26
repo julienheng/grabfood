@@ -7,11 +7,13 @@ class OrderItemsController < ApplicationController
     @order = Order.find(params[:order_id])
     @item = Item.find(params[:order_item][:item_id])
     @order_item = OrderItem.new(order_item_params)
-    authorize @order_item
     @order_item.item = @item
     @order_item.order = @order
-    @order_item.save
-    redirect_to restaurant_path(@restaurant, @order)
+    authorize @order_item
+
+    if @order_item.save
+      redirect_to restaurant_path(@restaurant, order: @order)
+    end
   end
 
   private
