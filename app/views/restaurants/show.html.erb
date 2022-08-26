@@ -3,32 +3,35 @@
   <div class="header">
     <p><%= link_to 'Home', root_path, class: "text-decoration-none"  %> > <%= @restaurant.name %></p>
     <div class="restaurant-details">
-      <h1><%= @restaurant.name %></h1>
+      <h2><strong><%= @restaurant.name %></strong></h2>
       <p>Location: <%= @restaurant.location %></p>
       <p>Category: <%= @restaurant.category %></p>
     </div>
+      <%= link_to "View Confirmation", order_path(@order) %>
   </div>
 </div>
 
 <%# item cards %>
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center align-items-center">
   <% @restaurant.items.each do |item| %>
     <div class="targetcards">
-      <div class="cards d-flex gap-4 justify-content-center">
+      <div class="cards d-flex gap-4">
         <div class="card boader p-3 border-success">
           <div class="card-img"><%= image_tag "fish.jpg" %></div>
           <div class="text-center"><h4><%= item.name %></h4></div>
-          <div class="description"><p><%= item.description %></p></div>
-          <div class="price"><p>$<%= item.price %></p></div>
-          <%= simple_form_for [@order, @order_item] do |f| %>
-            <%= f.input :quantity, input_html: { min: 0 } %>
-            <%= f.input :restaurant_id, :as => :hidden, :input_html => { :value => @restaurant.id } %>
-            <%= f.input :item_id, :as => :hidden, :input_html => { :value => item.id } %>
-            <%= f.submit "Submit review", class: "btn btn-primary" %>
-          <% end %>
+          <div class="description text-center"><p><%= item.description %></p></div>
+          <div class="price text-center"><p>$<%= item.price %></p></div>
+            <div class="add-quantity justify-content-center">
+              <%= simple_form_for [@order, @order_item] do |f| %>
+              <%= f.input :quantity, input_html: { min: 0 } %>
+              <%= f.input :restaurant_id, :as => :hidden, :input_html => { :value => @restaurant.id } %>
+              <%= f.input :item_id, :as => :hidden, :input_html => { :value => item.id } %>
+              <%= f.submit "Add item", class: "btn btn-primary align-items-center" %>
+              <% end %>
+          </div>
         </div>
       </div>
     </div>
   <% end %>
-  <%= link_to "View Confirmation", order_path(@order) %>
+
 </div>
