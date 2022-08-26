@@ -40,7 +40,7 @@ class RestaurantsController < ApplicationController
       # render current_user.is_seller ? 'restaurants/show_seller' : 'restaurants/show'
       if !current_user.is_seller?
         @order_item = OrderItem.new
-        @order = Order.find(params[:order])
+        @order = Order.find(params[:order]) if !@order.nil?
         unless params.include?('order')
           @order = Order.create!(user: current_user)
           redirect_to restaurant_path(@restaurant, order: @order)
