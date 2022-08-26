@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   #restaurants/index
   #order/show
 
-  resources :restaurants do
+  resources :restaurants do # restaurants/:id => restaurants#show
     resources :items, except: :show
   end
 
