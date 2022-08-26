@@ -1,18 +1,30 @@
-<h2>Forgot your password?</h2>
+<div class="main-container">
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
+  <div class='container'>
+    <%= link_to root_path, class: "navbar-signup text-center" do %>
+      <%= image_tag "https://images.gmanews.tv/webpics/2019/06/Grab_Food_2019_06_20_01_45_58.jpg", width: 100 %>
+    <% end %>
+    <h1>Forgot your password?</h1>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= f.error_notification %>
 
-<%= render "devise/shared/links" %>
+    <div class="form-inputs mt-10">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" } %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Send me reset password instructions" %>
+
+    </div>
+
+    <% end %>
+    <div class="link"><%= render "devise/shared/links" %></div>
+
+
+</div>

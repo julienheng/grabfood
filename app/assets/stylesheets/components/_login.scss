@@ -31,6 +31,16 @@ h1 {
   text-align: center;
 }
 
+.sign_in {
+  input {
+    border-radius: 10px;
+  }
+  label {
+
+  }
+}
+
+
 .submit {
   font-weight: bolder;
   color: white;
@@ -76,8 +86,40 @@ a {
   margin-right: auto;
   margin-bottom: 10px;
 
+  input {
+  border-radius: 10px;
+       }
 }
 
 .link {
   text-align: center;
+}
+
+
+h1 {
+  position: relative;
+  bottom: 5px
+}
+
+h2 {
+  color: #00B24F;
+  margin-bottom: 10px;
+}
+
+.main-conntainer {
+  position: relative;
+}
+
+.title {
+  position: absolute;
+  top: 10px;
+  text-align: center;
+  left: 50%
+}
+
+.navbar-signup {
+  display: flex;
+  justify-content: left;
+  width: 50px;
+  margin-right: 300px
 }

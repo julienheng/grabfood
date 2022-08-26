@@ -1,14 +1,19 @@
-<div class="signup_text text-center">
-  <h2 class="mt-2">New Here?</h2>
-  <h2 class="mb-2">Sign Up</h2>
+<div class="navbar sticky-top px-3 py-0 my-0">
+  <%= link_to root_path, class: "navbar-signup" do %>
+    <%= image_tag "https://images.gmanews.tv/webpics/2019/06/Grab_Food_2019_06_20_01_45_58.jpg", width: 50 %>
+  <% end %>
 </div>
 
-<div class="main-container">
+<div class="container my-0">
+    <div class="text-center">
+      <h2 class="">New Here?</h2>
+      <h2 class="">Sign Up</h2>
+    </div>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
-      <%= f.input :is_seller, input_html: { is_seller: 'Are you a business owner?' }  %>
+      <%= f.input :is_seller, label: 'Are you a business owner?'  %>
       <%= f.input :name %>
       <%= f.input :address %>
       <%= f.input :email,
@@ -19,7 +24,7 @@
       <%= f.input :password,
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
+                  input_html: { password: "new-password" } %>
       <%= f.input :password_confirmation,
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
@@ -29,8 +34,11 @@
       <%= f.button :submit, "Sign up", class: 'signup' %>
     </div>
     <div class="link">
-    <%= render "devise/shared/links" %>
+      <%= link_to "Already have an account? Log in", new_user_session_path %>
     </div>
 
     <% end %>
 </div>
+
+
+<%# <%= render "devise/shared/links" %>
