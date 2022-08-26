@@ -22,10 +22,25 @@
         <p>Delivery date: <%= @order.delivery_date %></p>
         <p>Delivery time: <%= Time.now %> </p>
       </div>
+<%# sum = 0 %>
+<%# total_amt_per_item = order.order_item.items.each |item_price|
+sum = item_price * quantity
+end
+
+total_quantity = order.order_item.each |item|
+item * quantity
+end
+
+final_amt = total_amt * total_quantity  %>
+
+<%# ----------------------------------- %>
+
+
+<%# (order_item * quantity)  %>
 
       <div class="delivery_details">
         <p>Payment details</p>
-        <p>Total: $<%= @order.total_cost %></p>
+        <p>Total: $<%= @sum %></p>
         <p>Payment details: By cash</p>
         <p>Cash on Delivery</p>
 
