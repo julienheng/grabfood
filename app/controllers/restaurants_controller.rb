@@ -14,6 +14,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
+
     authorize @restaurant
 
     if @restaurant.save
@@ -25,6 +26,8 @@ class RestaurantsController < ApplicationController
 
   def show
     authorize @restaurant
+    @order_item = OrderItem.new
+    #@order = Order.find(params[:order])
 
     if user_signed_in?
       unless params.include?('order')
