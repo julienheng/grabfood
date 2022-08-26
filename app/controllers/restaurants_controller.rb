@@ -4,6 +4,13 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR synopsis ILIKE :query"
+      @items = Item.name.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @items = Item.all
+    end
   end
 
   def new
