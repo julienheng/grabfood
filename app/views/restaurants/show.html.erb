@@ -31,6 +31,12 @@
           <div class="text-center"><h4><%= item.name %></h4></div>
           <div class="description"><p><%= item.description %></p></div>
           <div class="price"><p>$<%= item.price %></p></div>
+          <%= simple_form_for [@order, @order_item] do |f| %>
+            <%= f.input :quantity %>
+            <%= f.input :restaurant_id, :as => :hidden, :input_html => { :value => @restaurant.id } %>
+            <%= f.input :item_id, :as => :hidden, :input_html => { :value => item.id } %>
+            <%= f.submit "Submit review", class: "btn btn-primary" %>
+          <% end %>
         </div>
       </div>
     </div>

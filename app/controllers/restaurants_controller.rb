@@ -21,10 +21,11 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
+
     authorize @restaurant
 
     if @restaurant.save
-      redirect_to restaurant_path(@restaurant)
+      redirect_to restaurants_path(@restaurant)
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,6 +33,8 @@ class RestaurantsController < ApplicationController
 
   def show
     authorize @restaurant
+    @order_item = OrderItem.new
+    #@order = Order.find(params[:order])
 
     if user_signed_in?
       unless params.include?('order')
