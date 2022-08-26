@@ -4,6 +4,13 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR synopsis ILIKE :query"
+      @items = Item.name.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @items = Item.all
+    end
   end
 
   def new
@@ -18,7 +25,7 @@ class RestaurantsController < ApplicationController
     authorize @restaurant
 
     if @restaurant.save
-      redirect_to restaurant_path(@restaurant)
+      redirect_to restaurants_path(@restaurant)
     else
       render :new, status: :unprocessable_entity
     end

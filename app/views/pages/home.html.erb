@@ -24,10 +24,10 @@
       <input type="text" class="location-bar" placeholder="Search location">
       <button type="button" class="btn btn-success">Success</button>
     </div> %>
-    <div class="search-bar">
+    <%# <div class="search-bar">
       <input type="text" class="search-dish" placeholder="search for dish or a restaurant">
       <button type="button" class="btn btn-success">Search</button>
-    </div>
+    </div> %>
 
 <%# <div class="d-flex align-items-center p10">
   <form class="d-flex">
@@ -35,6 +35,16 @@
     <button class="btn btn-primary" type="submit">Search</button>
   </form>
 </div> %>
+
+<%= form_with url: restaurants_path, method: :get, class: "d-flex search-bar" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find food, dish or restaurant"
+  %>
+  <%= submit_tag "Search", class: "btn btn-success search-button" %>
+  <% end %>
+<br>
 
  <div class="cards2">
 
