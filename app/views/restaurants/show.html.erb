@@ -1,10 +1,11 @@
 <%# navigation bar %>
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
+<%= button_to "Log Out", destroy_user_session_path, method: :delete  %>
+
+<nav class="navbar navbar-expand-lg navbar-white bg-white">
   <div class="container-fluid d-flex justify-content-end">
     <a class="navbar-brand" href="#"></a>
     <%# <%= image_tag "https://images.gmanews.tv/webpics/2019/06/Grab_Food_2019_06_20_01_45_58.jpg" %>
-    <%= link_to 'Log in', new_user_session_path, class: "btn btn-outline-success my-2 my-sm-0 ms-2" %>
-    <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-outline-success my-2 my-sm-0 ms-2" %>
+    <%= link_to "Log out" %>
   </div>
 </nav>
 
@@ -21,7 +22,7 @@
 </div>
 
 <%# item cards %>
-<div class="d-flex">
+<div class="d-flex justify-content-center">
   <% @restaurant.items.each do |item| %>
     <div class="targetcards">
       <div class="cards d-flex gap-4 justify-content-center">

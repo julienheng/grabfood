@@ -15,6 +15,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
     authorize @restaurant
+
     if @restaurant.save
       redirect_to restaurant_path(@restaurant)
     else
@@ -24,6 +25,18 @@ class RestaurantsController < ApplicationController
 
   def show
     authorize @restaurant
+
+    if user_signed_in?
+      unless params.include?('order')
+        @order = Order.create!(user: current_user)
+        return redirect_to restaurant_path(@restaurant, order: @order)
+      end
+
+      @order = Order.find(params[:order])
+    end
+
+    # redirect to seller page if current user is owner
+    render :show_seller if @restaurant.user == current_user
   end
 
   def edit

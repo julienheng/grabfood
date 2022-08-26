@@ -10,12 +10,12 @@ Rails.application.routes.draw do
   #restaurants/index
   #order/show
 
-  resources :restaurants do
+  resources :restaurants do # restaurants/:id => restaurants#show
     resources :items, except: :show
   end
 
   resources :orders, except: :index do
-    resources :order_items, only: %i[index new create]
+    # resources :order_items, only: %i[index new create]
   end
 
   resources :order_items, only: %i[destroy]

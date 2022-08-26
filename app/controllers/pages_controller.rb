@@ -2,10 +2,20 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home]
 
   def home
+    @restaurant = Restaurant.new
     @restaurants = Restaurant.all
+
     if user_signed_in?
-      render current_user.is_seller ? 'restaurants/index' : 'pages/home'
+      if current_user.is_seller && current_user.restaurants.count.zero?
+        render 'restaurants/new'
+      elsif current_user.is_seller && current_user.restaurants.count >= 1
+        render 'restaurants/index'
+      elsif !current_user.is_seller
+        render 'pages/home'
+      end
     end
   end
-
 end
+
+
+#render current_user.is_seller && current_user.restaurants.count == 0 ? 'restaurants/new' : 'restaurants/index'
