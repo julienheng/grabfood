@@ -21,12 +21,16 @@ class OrdersController < ApplicationController
 
   def show
     authorize @order
+
     # raise
     # order has many order_items
     @sum = 0
     @order.order_items.each do |order_item|
       @sum += order_item.item.price * order_item.quantity
     end
+
+    @order = Order.find(params[:id])
+
   end
 
   def edit

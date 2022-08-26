@@ -18,4 +18,5 @@ class PagesController < ApplicationController
 end
 
 
+
 #render current_user.is_seller && current_user.restaurants.count == 0 ? 'restaurants/new' : 'restaurants/index'

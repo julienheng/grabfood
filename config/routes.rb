@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   #order/show
 
   resources :restaurants do
-    resources :items, except: :show
+    resources :items
   end
 
   resources :orders, except: :index do
