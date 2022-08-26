@@ -10,6 +10,8 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    #check whether order id exists
+    #if exist, add on
     if @order.save
       redirect_to order_path(@order)
     else
