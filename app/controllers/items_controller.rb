@@ -1,5 +1,10 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[edit update destroy]
+  before_action :skip_authorization
+
+  def index
+    @restaurants = policy_scope(Restaurant)
+  end
 
   def new
     @restaurant = Restaurant.find(params[:restaurant_id])
@@ -10,7 +15,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.restaurant = Restaurant.find(params[:restaurant_id])
     if @item.save
-      redirect_to item_path(@item.restaurant)
+      redirect_to restaurant_path(@item.restaurant)
     else
       render :new, status: :unprocessable_entity
     end
@@ -18,26 +23,27 @@ class ItemsController < ApplicationController
 
   def edit
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @item = item.find(params[:id])
   end
 
   def update
-    @item = item.find(params[:id])
+    @item = Item.find(params[:id])
     @item.restaurant = Restaurant.find(params[:restaurant_id])
     @item = Item.update(item_params)
-    redirect_to item_path(@item)
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    redirect_to restaurant_path(@restaurant)
   end
 
   def destroy
     @item = item.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @item.destroy
-    redirect_to items_path(@item.restaurant), status: :see_other
+    redirect_to restaurant_path(@restaurant), status: :see_other
   end
 
   private
 
   def set_item
-    @item = item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def item_params
