@@ -1,10 +1,27 @@
-<h1>Welcome to your restaurant page</h1>
-<h2>Let's add some restaurants</h2>
-<p><%= link_to "Add a restaurant", new_restaurant_path(@restaurant) %></p>
+<%# dashboard header %>
+<div class="dashboard">
+  <div class="restaurant-header w-100 d-flex align-items-center justify-content-center shadow-lg" style="height: 200px; background-color: white">
+    <h1>Food Dashboard</h1>
+  </div>
+</div>
 
-<% @restaurants.each do |restaurant| %>
-    <%= restaurant.name %>
-  <% end %>
+<%# restaurant items %>
+<div class="restaurant-items">
+  <div class="target-items row gap-3 pt-3 justify-content-center text-center">
+    <% @restaurants.each do |restaurant| %>
+        <% restaurant.items.each do |item| %>
+          <div class="card boader p-3 border-success col-6 col-md-4 col-lg-3">
+            <div class="card-img"><%= image_tag "fish.jpg" %></div>
+            <h4 class="name"><%= item.name %></h4>
+            <p class="description"><%= item.description %></p>
+            <p class="price">$<%= item.price %></p>
+            <%= link_to "Edit", edit_restaurant_path(restaurant), class: "text-decoration-none" %><%= link_to "Delete", root_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "text-decoration-none" %>
+          </div>
+        <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%# edit, patch, destroy item %>
 
 <%= button_to "Log Out", destroy_user_session_path, method: :delete  %>
-<%= link_to "Home page", root_path  %>
