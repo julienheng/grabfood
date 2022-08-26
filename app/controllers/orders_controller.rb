@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
 
   def show
     authorize @order
+    @order = Order.find(params[:id])
   end
 
   def edit

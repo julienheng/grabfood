@@ -1,6 +1,5 @@
+
 <h1>BUYER SHOW PAGE </h1>
-
-
 <%# restaurant banner details %>
 <div class="banner">
   <div class="header">
@@ -24,7 +23,7 @@
           <div class="description"><p><%= item.description %></p></div>
           <div class="price"><p>$<%= item.price %></p></div>
           <%= simple_form_for [@order, @order_item] do |f| %>
-            <%= f.input :quantity %>
+            <%= f.input :quantity, input_html: { min: 0 } %>
             <%= f.input :restaurant_id, :as => :hidden, :input_html => { :value => @restaurant.id } %>
             <%= f.input :item_id, :as => :hidden, :input_html => { :value => item.id } %>
             <%= f.submit "Submit review", class: "btn btn-primary" %>
@@ -33,4 +32,5 @@
       </div>
     </div>
   <% end %>
+  <%= link_to "View Confirmation", order_path(@order) %>
 </div>
