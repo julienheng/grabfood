@@ -7,8 +7,8 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
 
     if params[:query].present?
-      sql_query = "title ILIKE :query OR synopsis ILIKE :query"
-      @items = Item.name.where(sql_query, query: "%#{params[:query]}%")
+      sql_query = "name ILIKE :query OR description ILIKE :query"
+      @items = Item.where(sql_query, query: "%#{params[:query]}%")
     else
       @items = Item.all
     end
