@@ -19,8 +19,8 @@ User.destroy_all
 
 # --user--
 
-puts "Creating 3 sellers..."
-3.times do |index|
+puts "Creating 10 sellers..."
+10.times do |index|
   user = User.create!(
     name: Faker::Name.name,
     address: Faker::Address.full_address,
@@ -86,13 +86,13 @@ restaurants = Restaurant.all
       delivered: [true, false].sample,
       delivery_date: Date.today,
       total_cost: rand(100),
-      user: user
+      user:
     )
 
     OrderItem.create!(
       quantity: rand(1..4),
       item: restaurant.items.sample,
-      order: order
+      order:
     )
   end
 end
