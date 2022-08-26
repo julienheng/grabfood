@@ -1,5 +1,3 @@
-
-
 <h1>Restaurant Owner SHOW PAGE</h1>
 
  <%= @restaurant.name %>
@@ -19,8 +17,8 @@
             <h4 class="name"><%= item.name %></h4>
             <p class="description"><%= item.description %></p>
             <p class="price">$<%= item.price %></p>
-            <%= link_to "edit", edit_restaurant_item_path(item)%>
-            <%= link_to "delete", data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+            <%= link_to "edit", edit_restaurant_item_path(item) %>
+            <%= link_to "delete", restaurant_path(item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
           </div>
     <% end %>
   </div>

@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = item.find(params[:id])
+    @item = Item.find(params[:id])
     @restaurant = Restaurant.find(params[:restaurant_id])
     @item.destroy
     redirect_to restaurant_path(@restaurant), status: :see_other
