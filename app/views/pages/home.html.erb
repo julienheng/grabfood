@@ -12,7 +12,7 @@
 
   </head>
 
-  
+
   <div class="location-container">
     <div class="location-greeting">
       <p>Good Evening</p>
@@ -37,10 +37,9 @@
 </div> %>
 
  <div class="cards2">
-  <style>
-    h1 {text-align: center;}</style>
+
     <h1>Available Restaurants in <%= @restaurants.first.user.address %></h1>
-  <div class="all-restaurant d-flex gap-2 justify-content-center">
+  <div class="flex-wrap all-restaurant d-flex gap-2 justify-content-center">
       <% @restaurants.each do |restaurant|%>
       <div class="border p-3 border-success" >
         <div><%= image_tag "fish.jpg" %></div>

@@ -1,17 +1,43 @@
-<div class="container align-center">
-  <h1>GrabFood</h1>
-  <p>Ready to check out?</p>
-  <p>Delivery to:</p>
+<%# <div class = "container align-center"> %>
+<div class = background style="background-color: #02B04E;">
+  <div class = "container">
+    <div class = "top-section">
+      <%= image_tag "grabfood_image.png" %>
+      <br>
+      <br>
+      <div class = "last_step_checkout">
+        <h1>Last Step - Checkout</h1>
+        <h2>Delivery to:</h2>
+        <%= @order.user.address %>
+      </div>
+    </div>
 
-  <%= simple_form_for(@order) do |f| %>
-     <%= f.input :delivered %>
+    <div class = "border border-4">
+      <div class = "order_summary">
+        <h2>Order Summary</h2>
+        <br>
+        <p>Customer Name: <%= @order.user.name %></p>
+        <p>Email: <%= @order.user.email %></p>
+        <p>Phone: <%= @order.user.phone %></p>
+        <p>Delivery date: <%= @order.delivery_date %></p>
+        <p>Delivery time: <%= Time.now %> </p>
+      </div>
 
-  <% end %>
-  <%= @order.delivery_date %>
+      <div class="delivery_details">
+        <p>Payment details</p>
+        <p>Total: $<%= @order.total_cost %></p>
+        <p>Payment details: By cash</p>
+        <p>Cash on Delivery</p>
 
-  <p>Payment details</p>
-  <p>Total: $<%= @order.total_cost %></p>
-
-  <%= link_to "Edit order", orders_path(@order) %>
-  <%= link_to "Place order", edit_order_path(@order) %>
+        <%= link_to "Edit order", orders_path(@order), class: "btn btn-primary" %>
+        <%= link_to "Place order", edit_order_path(@order), class: "btn btn-success" %>
+        <br>
+        <br>
+        <%= simple_form_for(@order) do |f| %>
+          <p>Delivery status:<%= f.input :delivered %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
+<%# </div> %>
