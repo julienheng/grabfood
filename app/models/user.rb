@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :orders
   has_many :restaurants
-  validates :name, uniqueness: true, presence: true
+  validates :name, presence: true
   validates :address, :phone, presence: true
   validates :email, confirmation: true, presence: true
   validates :password, confirmation: true, presence: true
