@@ -1,7 +1,18 @@
-<h1>Let's create your menu</h1>
-<%= simple_form_for [@restaurant, @item] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.submit %>
-<% end %>
+<body id="item">
+
+  <div class="create-item">
+    <p>Create your item</p>
+
+
+    <div class="item-input">
+      <%= simple_form_for [@restaurant, @item] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :price %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit class: 'submit' %>
+      <% end %>
+    </div>
+  </div>
+
+</body>

@@ -1,0 +1,29 @@
+body#create {
+  background-color: #00b24f ;
+}
+
+.create-restaurant {
+  background-color: white;
+  width: 60vw;
+  height: 100vh;
+  margin: auto;
+  p {
+    font-size: 40px;
+    color:#00b24f;
+    text-align: center;
+  }
+}
+
+.restaurant-input {
+  width: 400px;
+  margin: auto;
+
+  input {
+    height: 30px;
+    border-radius: 10px;
+  }
+
+  .submit {
+    margin-top: 20px;
+  }
+}

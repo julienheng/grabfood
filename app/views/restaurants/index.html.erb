@@ -1,3 +1,5 @@
+
+
 <h1> Your Dashboard </h1>
 <p>Here is where you see all of your restaurants </p>
 
@@ -8,4 +10,7 @@
   <%= link_to restaurant.name, restaurant_path(restaurant) %>
   <%= restaurant.location %>
   <%= restaurant.category %>
+  <%# <%= cl_image_tag restaurant.photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
+
+<%= button_to "Log Out", destroy_user_session_path, method: :delete  %>

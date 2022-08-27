@@ -1,36 +1,49 @@
-<div class="container my-0">
-  <div class="text-center">
-    <h2>Welcome to GrabFood</h2>
-    <h3>Sign up here </h3>
-  </div>
+<body id="login-page">
+  <div class="main-container">
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
-    <div class="form-inputs">
-      <%= f.input :is_seller, label: 'Are you a business owner?' %>
-        <%= f.input :name %>
-        <%= f.input :address %>
-        <%= f.input :email,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" }%>
-        <%= f.input :phone %>
-        <%= f.input :password,
-                    required: true,
-                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { password: "new-password" } %>
-        <%= f.input :password_confirmation,
-                    required: true,
-                    input_html: { autocomplete: "new-password" } %>
+    <div class="container2">
+
+      <div class="image">
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <%= image_tag "https://images.gmanews.tv/webpics/2019/06/Grab_Food_2019_06_20_01_45_58.jpg", width: 100 %>
+        <% end %>
+      </div>
+
+      <p class="display-5">Sign Up Here</p>
+
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :is_seller, label: 'Are you a business owner?' %>
+            <%= f.input :name %>
+            <%= f.input :address %>
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" }%>
+            <%= f.input :phone %>
+            <%= f.input :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { password: "new-password" } %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        input_html: { autocomplete: "new-password" } %>
+        </div>
+
+        <div class="form-actions2">
+          <%= f.button :submit, "Sign up", class: 'signup' %>
+        </div>
+
+        <div class="link">
+          <%= link_to "Already have an account? Log in", new_user_session_path %>
+        </div>
+
+        <% end %>
     </div>
-    <div class="form-actions2">
-      <%= f.button :submit, "Sign up", class: 'signup' %>
-    </div>
-    <div class="link">
-      <%= link_to "Already have an account? Log in", new_user_session_path %>
-    </div>
-  <% end %>
-</div>
+
+  </div>
+</body>
 
 
 <%# <%= render "devise/shared/links" %>

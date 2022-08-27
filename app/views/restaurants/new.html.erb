@@ -1,9 +1,18 @@
-<h1>Let's create your restaurant</h1>
-<%= simple_form_for(@restaurant) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :location %>
-  <%= f.input :category %>
-  <%= f.input :opening_hour %>
-  <%= f.input :closing_hour %>
-  <%= f.submit %>
-<% end %>
+<body id="create">
+
+  <div class="create-restaurant">
+    <p>Create your restaurant</p>
+
+    <div class="restaurant-input">
+      <%= simple_form_for(@restaurant) do |f| %>
+        <%= f.input :name %>
+        <%= f.input :location %>
+        <%= f.input :category %>
+        <%= f.input :opening_hour %>
+        <%= f.input :closing_hour %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit class: 'submit' %>
+      <% end %>
+    </div>
+  </div>
+</body>

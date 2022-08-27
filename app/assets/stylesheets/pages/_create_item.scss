@@ -1,0 +1,29 @@
+body#item {
+  background-color: #00b24f
+}
+
+.create-item {
+  background-color: white;
+  width: 60vw;
+  height: 100vh;
+  margin: auto;
+  p {
+    font-size: 40px;
+    color:#00b24f;
+    text-align: center;
+  }
+}
+
+.item-input {
+  width: 400px;
+  margin: auto;
+
+  input {
+    height: 30px;
+    border-radius: 10px;
+  }
+
+  .submit {
+    margin-top: 20px;
+  }
+}
