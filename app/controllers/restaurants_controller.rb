@@ -5,13 +5,6 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = policy_scope(Restaurant)
     @restaurants = Restaurant.all
-
-    if params[:query].present?
-      sql_query = "name ILIKE :query OR description ILIKE :query"
-      @items = Item.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @items = Item.all
-    end
   end
 
   def new
