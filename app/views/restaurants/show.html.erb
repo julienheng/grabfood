@@ -15,27 +15,27 @@
 </div>
 
 <%# item cards %>
-<div class="d-flex justify-content-center align-items-center">
+<div class="row">
   <% @restaurant.items.each do |item| %>
-    <div class="targetcards">
-      <div class="cards d-flex gap-4">
-        <div class="card boader p-3 border-success">
-          <div class="card-img"><%= image_tag "fish.jpg" %></div>
-          <div class="text-center"><h4><%= item.name %></h4></div>
-          <div class="description text-center"><p><%= item.description %></p></div>
-          <div class="price text-center"><p>$<%= item.price %></p></div>
-            <div class="add-quantity justify-content-center">
+      <div class="col-sm-3 d-flex">
+        <div class="card border p-3 border-success">
+          <div class="card-img-top"><%= image_tag "fish.jpg" %></div>
+          <div class="card-body d-flex flex-column">
+            <div class="card-title"><h4><%= item.name %></h4></div>
+            <div class="card-text mb-auto"><p><%= item.description %></p></div>
+            <div class="card-text mt-auto"><p>$<%= item.price %></p></div>
               <% if user_signed_in? %>
-                <%= simple_form_for [@order, @order_item] do |f| %>
-                <%= f.input :quantity, input_html: { min: 0 } %>
-                <%= f.input :restaurant_id, :as => :hidden, :input_html => { :value => @restaurant.id } %>
-                <%= f.input :item_id, :as => :hidden, :input_html => { :value => item.id } %>
-                <%= f.submit "Add item", class: "btn btn-primary align-items-center" %>
-                <% end %>
+                <div class="mt-auto">
+                  <%= simple_form_for [@order, @order_item] do |f| %>
+                    <div class="field"><%= f.input :quantity, input_html: { min: 0 } %></div>
+                    <%= f.input :restaurant_id, :as => :hidden, :input_html => { :value => @restaurant.id } %>
+                    <%= f.input :item_id, :as => :hidden, :input_html => { :value => item.id } %>
+                    <a><%= f.submit "Add item", class: "btn btn-primary align-items-center" %></a>
+                  <% end %>
+                </div>
               <% end %>
-          </div>
+            </div>
         </div>
       </div>
-    </div>
   <% end %>
 </div>
