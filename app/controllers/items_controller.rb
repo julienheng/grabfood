@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :skip_authorization
 
   def index
-    @restaurants = policy_scope(Restaurant)
+    @items = Item.all
   end
 
   def new
@@ -23,14 +23,16 @@ class ItemsController < ApplicationController
 
   def edit
     @restaurant = Restaurant.find(params[:restaurant_id])
+    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
-    @item.restaurant = Restaurant.find(params[:restaurant_id])
-    @item = Item.update(item_params)
-    @restaurant = Restaurant.find(params[:restaurant_id])
-    redirect_to restaurant_path(@restaurant)
+    #@restaurant = Restaurant.find(params[:restaurant_id])
+    #raise
+    @item = Item.find(params[:id]).update(item_params)
+    #@item.restaurant = Restaurant.find(params[:restaurant_id])
+    #@item = Item.update(item_params)
+    redirect_to restaurant_path(params[:restaurant_id])
   end
 
   def destroy
