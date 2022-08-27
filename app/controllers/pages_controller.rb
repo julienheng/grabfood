@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   def home
     @restaurant = Restaurant.new
     @restaurants = Restaurant.all
-
     if user_signed_in?
       if current_user.is_seller && current_user.restaurants.count.zero?
         render 'restaurants/new'
@@ -16,7 +15,4 @@ class PagesController < ApplicationController
     end
   end
 end
-
-
-
 #render current_user.is_seller && current_user.restaurants.count == 0 ? 'restaurants/new' : 'restaurants/index'
