@@ -48,7 +48,7 @@ puts "Creating 10 sellers..."
   puts "#{restaurant.name} created!"
 
   puts "    Creating items for restaurant...\n\n"
-  rand(2..5).times do
+  8.times do
     item = Item.create!(
       name: Faker::Food.dish,
       price: Faker::Number.decimal,
@@ -67,7 +67,7 @@ end
 puts "Creating non sellers..."
 restaurants = Restaurant.all
 
-10.times do |index|
+5.times do |index|
   user = User.create!(
     name: Faker::Name.name,
     address: Faker::Address.full_address,
@@ -81,7 +81,7 @@ restaurants = Restaurant.all
   # select a single restaurant for this order
   restaurant = restaurants.sample
 
-  rand(1..3).times do
+  3.times do
     order = Order.create!(
       delivered: [true, false].sample,
       delivery_date: Date.today,
@@ -90,7 +90,7 @@ restaurants = Restaurant.all
     )
 
     OrderItem.create!(
-      quantity: rand(1..4),
+      quantity: 5,
       item: restaurant.items.sample,
       order:
     )
