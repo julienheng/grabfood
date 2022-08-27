@@ -1,7 +1,17 @@
-<h1>Let's create your menu</h1>
-<%= simple_form_for [@restaurant, @item] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :price %>
-  <%= f.submit %>
-<% end %>
+<div class="dashboard">
+  <div class="restaurant-header">
+    <h1><strong>Let's Create Your Menu</strong></h1>
+    <p><em>Fixing your customer's hunger</em></p>
+  </div>
+</div>
+
+<%# <h1>Let's create your menu</h1> %>
+
+<div class="container p-5 rounded mt-3 text-start">
+  <%= simple_form_for [@restaurant, @item] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.submit %>
+  <% end %>
+</div>

@@ -1,11 +1,22 @@
-<h1> Your Dashboard </h1>
-<p>Here is where you see all of your restaurants </p>
+<div class="body">
+  <div class="dashboard">
+    <img src="ingredients_sstock.jpg" alt="">
+    <div class="restaurant-header">
+      <h1><strong>Welcome to your Restaurant Page</strong></h1>
+      <p class="newpage"><%= link_to "Create a new restaurant", new_restaurant_path(@restaurant)%></p>
+    </div>
+  </div>
 
-
-<%= link_to "Create A Restaurant!", new_restaurant_path(@restaurant) %>
-
-<% @restaurants.each do |restaurant| %>
-  <%= link_to restaurant.name, restaurant_path(restaurant) %>
-  <%= restaurant.location %>
-  <%= restaurant.category %>
-<% end %>
+  <div class="restaurant-container mt-4">
+    <div class="details row gap-3 pt-3 justify-content-center text-center">
+      <% @restaurants.each do |restaurant| %>
+        <div class="detail boader p-3 border-success col-6 col-md-4 col-lg-3">
+          <div class="detail-img text-center pb-3"><%= image_tag "fish.jpg" %></div>
+            <p>Name: <%= link_to restaurant.name, restaurant_path(restaurant) %></p>
+            <p>Location: <%= restaurant.location %></p>
+            <p>Category: <%= restaurant.category %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
