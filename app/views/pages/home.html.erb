@@ -36,29 +36,30 @@
   </form>
 </div> %>
 
-<%= form_with url: restaurants_path, method: :get, class: "d-flex search-bar" do %>
+<%= form_with url: root_path, method: :get, class: "d-flex search-bar" do %>
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "Find food, dish or restaurant"
+    placeholder: "Find Your Favourite Restaurant, Cuisine and Dish"
   %>
   <%= submit_tag "Search", class: "btn btn-success search-button" %>
   <% end %>
 <br>
 
- <div class="cards2">
 
-    <h1>Available Restaurants in <%= @restaurants.first.user.address %></h1>
-  <div class="flex-wrap all-restaurant d-flex gap-2 justify-content-center front-body">
-      <% @restaurants.each do |restaurant|%>
-      <div class="border p-3 border-success" >
-        <div><%= image_tag "fish.jpg" %></div>
-        <p><%= link_to restaurant.name, restaurant_path(restaurant) %></p>
-        <p><%= restaurant.category %></p>
-        <p><%= restaurant.location %></p>
-        <p><%= restaurant.opening_hour %></p>
-        <p><%= restaurant.closing_hour %></p>
+<div class="row">
+  <% @restaurants.each do |restaurant|%>
+    <div class="col-sm-3 d-flex" >
+      <div class="card border p-3 border-success">
+        <div class="card-img-top"><%= image_tag "fish.jpg" %></div>
+        <div class="card-body d-flex flex-column">
+          <div class="card-title"><h4><%= link_to restaurant.name, restaurant_path(restaurant) %></h4></div>
+          <div class="card-subtitle mb-auto text-muted"><p><%= restaurant.category %></p></div>
+          <div class="card-text mb-auto"><p><%= restaurant.location %></p></div>
+          <div class="card-text mb-auto"><p>Opening Hour: <%= restaurant.opening_hour %></p></div>
+          <div class="card-text mb-auto"><p>Closing Hour: <%= restaurant.closing_hour %></p></div>
+        </div>
       </div>
-      <% end %>
-  </div>
- </div>
+    </div>
+  <% end %>
+</div>
