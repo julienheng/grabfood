@@ -3,7 +3,12 @@ class PagesController < ApplicationController
 
   def home
     @restaurant = Restaurant.new
-    @restaurants = Restaurant.all
+
+    if params[:query].present?
+      @restaurants = Restaurant.search_by_name_and_category(params[:query])
+    else
+      @restaurants = Restaurant.all
+    end
 
     if user_signed_in?
       if current_user.is_seller && current_user.restaurants.count.zero?
