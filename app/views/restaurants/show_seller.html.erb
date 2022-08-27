@@ -1,29 +1,30 @@
-<h1>Restaurant Owner SHOW PAGE</h1>
+<div class="container-seller">
+  <div class="dashboard">
+    <div class="restaurant-header">
+      <h1><strong><%= @restaurant.name %></strong></h1>
+      <h5>Your Food Dashboard</h5>
+      <%= link_to "Create New Item", new_restaurant_item_path(@restaurant, @item) %> | <%= link_to "Back to Homepage", root_path %>
+    </div>
+  </div>
 
- <%= @restaurant.name %>
-<%= @restaurant.location %>
+  <%# <h2>Show all food item here</h2> %>
 
-<h2>Show all food item here</h2>
-
-
-<%= link_to "Create a food item", new_restaurant_item_path(@restaurant, @item) %>
-
-<div class="restaurant-items">
-  <div class="target-items row gap-3 pt-3 justify-content-center text-center">
-    <% @restaurant.items.each do |item| %>
-        <%# <% restaurant.items.each do |item| %>
-          <div class="card boader p-3 border-success col-6 col-md-4 col-lg-3">
-            <div class="card-img"><%= image_tag "fish.jpg" %></div>
-            <h4 class="name"><%= item.name %></h4>
-            <p class="description"><%= item.description %></p>
-            <p class="price">$<%= item.price %></p>
-            <%= link_to "edit", edit_restaurant_item_path(@restaurant, item) %>
-            <%= link_to "delete", restaurant_item_path(@restaurant, item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-          </div>
-    <% end %>
+  <div class="restaurant-items mt-4">
+    <div class="target-items row gap-3 pt-3 justify-content-center text-center">
+      <% @restaurant.items.each do |item| %>
+          <%# <% restaurant.items.each do |item| %>
+            <div class="card boader p-3 border-success col-6 col-md-4 col-lg-3">
+              <div class="card-img"><%= image_tag "fish.jpg" %></div>
+              <h4 class="name"><%= item.name %></h4>
+              <p class="description"><%= item.description %></p>
+              <p class="price">$<%= item.price %></p>
+              <div>
+                <%= link_to "Edit", edit_restaurant_item_path(@restaurant, item) %> | <%= link_to "Delete", restaurant_item_path(@restaurant, item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+              </div>
+            </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
-
-
-<%= button_to "Log Out", destroy_user_session_path, method: :delete  %>
+<%# <%= button_to "Log Out", destroy_user_session_path, method: :delete  %>

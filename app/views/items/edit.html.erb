@@ -1,4 +1,12 @@
-<div class="container p-5 rounded mt-3">
+<div class="dashboard">
+  <div class="restaurant-header">
+    <h1><strong><%= @restaurant.name %></strong></h1>
+    <h3>Update Your Item</h3>
+  </div>
+</div>
+
+
+<div class="container p-5 rounded mt-3 text-start">
   <%= simple_form_for [@restaurant, @item] do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
