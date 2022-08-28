@@ -50,8 +50,8 @@ final_amt = total_amt * total_quantity  %>
         <p>Payment details: By cash</p>
         <p>Cash on Delivery</p>
 
-        <%= link_to "Edit order", orders_path(@order), class: "btn btn-primary" %>
-        <%= link_to "Place order", edit_order_path(@order), class: "btn btn-success" %>
+        <%#= link_to "Edit order", orders_path(@order), class: "btn btn-primary" %>
+        <%= link_to "Place order", root_path, :data => {:confirm => 'Are you sure?'}, class: "btn btn-success" %>
         <br>
         <br>
         <%= simple_form_for(@order) do |f| %>
