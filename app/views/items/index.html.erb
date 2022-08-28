@@ -12,6 +12,7 @@
         <% restaurant.items.each do |item| %>
           <div class="card boader p-3 border-success col-6 col-md-4 col-lg-3">
             <div class="card-img"><%= image_tag "fish.jpg" %></div>
+            <%= cl_image_tag item.photo.key, height: 300, width: 400, crop: :fill %>
             <h4 class="name"><%= item.name %></h4>
             <p class="description"><%= item.description %></p>
             <p class="price">$<%= item.price %></p>

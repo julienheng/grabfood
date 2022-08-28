@@ -1,17 +1,22 @@
-<div class="dashboard">
-  <div class="restaurant-header">
-    <h1><strong>Let's Create Your Menu</strong></h1>
-    <p><em>Fixing your customer's hunger</em></p>
-  </div>
-</div>
+<body id="create-item">
 
-<%# <h1>Let's create your menu</h1> %>
+    <div class="dashboard">
+      <div class="create-item-header">
+        <h1><strong>Let's Create Your Menu</strong></h1>
+        <p><em>Fixing your customer's hunger</em></p>
+      </div>
+    </div>
 
-<div class="container p-5 rounded mt-3 text-start">
-  <%= simple_form_for [@restaurant, @item] do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :price %>
-    <%= f.submit %>
-  <% end %>
-</div>
+    <%# <h1>Let's create your menu</h1> %>
+
+    <div class="create-item-container p-5 rounded mt-3 text-start">
+      <%= simple_form_for [@restaurant, @item] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :price %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+
+</body>
