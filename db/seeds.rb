@@ -51,7 +51,7 @@ puts "Creating 10 sellers..."
   8.times do
     item = Item.create!(
       name: Faker::Food.dish,
-      price: Faker::Number.decimal,
+      price: Faker::Number.decimal(l_digits: 2),
       description: Faker::Food.description,
       restaurant:
       )
