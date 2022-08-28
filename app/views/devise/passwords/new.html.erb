@@ -1,30 +1,36 @@
-<div class="main-container">
+<body id="pass-page">
+  <div class="main-container-password">
 
-  <div class='container'>
-    <%= link_to root_path, class: "navbar-signup text-center" do %>
-      <%= image_tag "https://images.gmanews.tv/webpics/2019/06/Grab_Food_2019_06_20_01_45_58.jpg", width: 100 %>
-    <% end %>
-    <h1>Forgot your password?</h1>
+    <div class="second-container-password">
 
+      <div class="img-password">
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <%= image_tag "snatch_food", width: 150%>
+        <% end %>
+      </div>
+
+      <h1 class="text-password text-center">Forgot your password?</h1>
+
+      <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs-password mt-10">
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" } %>
+        </div>
+
+      <div class="form-actions-password">
+        <%= f.button :submit, "Send me reset password instructions" %>
+      </div>
+
+      <% end %>
+
+      <div class="link-password">
+        <%= render "devise/shared/links" %>
+      </div>
+
+    </div>
   </div>
-
-  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-    <%= f.error_notification %>
-
-    <div class="form-inputs mt-10">
-      <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" } %>
-    </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Send me reset password instructions" %>
-
-    </div>
-
-    <% end %>
-    <div class="link"><%= render "devise/shared/links" %></div>
-
-
-</div>
+</body>

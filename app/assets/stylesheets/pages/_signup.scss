@@ -1,76 +1,64 @@
-body#login-page {
+body#signup-page {
   background-color: #00b24f;
 }
 
-.main-container-login {
+.main-container-signup {
   background-color: white;
   width: 60vw;
-  height: 100vh;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
-.second-container-login {
+.second-container-signup {
   width: 500px;
   margin: 0 auto;
 
-  p {
+  .text-signup {
     color: #00b24f;
-    font-size: 40px;
     text-align: center;
   }
+
+  .img-signup {
+    margin: 0 200px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
-/* ------------ image ---------- */
-.img-login {
-  margin: 0 auto;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-
-/* ----------- form content ---------- */
-.form-inputs-login {
+.form-inputs-signup {
   width: 300px;
   margin: 0 auto;
-
-  .sign_in {
-    text-align: left;
-  }
 
   input {
     border-radius: 20px;
   }
 }
 
-.form-actions-login {
+.form-actions-signup {
+  margin: 0 auto;
   border: 1px solid #00b24f;
   border-radius: 30px;
   background-color: #00b24f;
   text-align: center;
   width: 100px;
-  margin: auto;
   margin-bottom: 20px;
 }
 
-.submit {
+.signup-button {
   font-weight: bolder;
   color: white;
   border: none;
+  :hover {
+    color: black ;
+  }
 }
 
-
-.submit:hover {
-  color: black ;
-}
-
-.sign_up {
+.link-signup {
   text-align: center;
 
   a {

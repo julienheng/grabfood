@@ -3,13 +3,14 @@
   <div class="main-container-login">
     <div class="second-container-login">
 
-      <div class="img-login 'mx-auto d-block'">
+      <div class="img-login">
         <%= link_to root_path, class: "navbar-brand" do %>
-          <%= image_tag "snatch_food", width: 100 %>
+          <%= image_tag "snatch_food", width: 150%>
         <% end %>
       </div>
 
       <p class="text-login">Login to Your Account</p>
+
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs-login">
           <div class="sign_in">
@@ -30,11 +31,12 @@
           <%= f.button :submit, "Log in", class: 'submit' %>
         </div>
 
-        <div class="sign_up">
-          <%= render "devise/shared/links", class: 'sign_up' %>
-        </div>
-
       <% end %>
+
+      <div class="sign_up">
+        <%= render "devise/shared/links", class: 'sign_up' %>
+      </div>
+
     </div>
   </div>
 </body>
