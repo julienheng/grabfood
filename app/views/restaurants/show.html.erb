@@ -1,15 +1,16 @@
-<h1>BUYER SHOW PAGE </h1>
+<%# <h1>BUYER SHOW PAGE </h1> %>
 <%# restaurant banner details %>
-<div class="banner">
+<div class="banner_buyer_show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1651166/pexels-photo-1651166.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);">
   <div class="header">
-    <p><%= link_to 'Home', root_path, class: "text-decoration-none"  %> > <%= @restaurant.name %></p>
+    <p id= "user_show_font"><%= link_to 'Home', root_path, class: "text-decoration-none btn btn-outline-light"  %> </p>
+    <p id= "user_show_font">Restaurant Name: <%= @restaurant.name %></p>
     <div class="restaurant-details">
-      <h2><strong><%= @restaurant.name %></strong></h2>
-      <p>Location: <%= @restaurant.location %></p>
-      <p>Category: <%= @restaurant.category %></p>
+      <%# <h2 id= "user_show_font"><strong><%= @restaurant.name %></strong></h2>
+      <p id= "user_show_font">Location: <%= @restaurant.location %></p>
+      <p id= "user_show_font">Category: <%= @restaurant.category %></p>
     </div>
     <% if user_signed_in? %>
-      <%= link_to "View Confirmation", order_path(@order) %>
+      <%= link_to "View Confirmation", order_path(@order), class: "btn btn-success"%>
     <% end %>
   </div>
 </div>
