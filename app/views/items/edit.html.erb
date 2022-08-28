@@ -2,6 +2,7 @@
   <div class="restaurant-header">
     <h1><strong><%= @restaurant.name %></strong></h1>
     <h3>Update Your Item</h3>
+    <%= link_to "Food Dashboard", restaurant_path(@restaurant) %> | <%= link_to "Back to Homepage", root_path %>
   </div>
 </div>
 

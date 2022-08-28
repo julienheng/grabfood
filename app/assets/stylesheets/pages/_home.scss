@@ -1,5 +1,6 @@
 // Specific CSS for your home-page
-// restaurant-seller page
+// restaurant-seller page -- restaurant index
+
 .dashboard {
   background-color: white;
   height: 220px;
@@ -16,8 +17,9 @@
   }
 }
 
-h1 {
+.banner h1 {
   font-size: 80px;
+  color: black;
 }
 
 .detail {
@@ -28,6 +30,36 @@ h1 {
   border-radius: 4px;
 }
 
-.newpage {
+.links {
   color: green;
+}
+
+.footer {
+  background-color: green;
+  text-align: center;
+  padding: 30px;
+  margin-top: 16px;
+  color: black;
+}
+
+.footer a {
+  color: rgb(0, 249, 0);
+  font-size: 25px;
+  padding: 8px;
+}
+
+// show-seller restaurant
+
+.card-restaurant {
+  width: 320px;
+  height: 460px;
+  background-color: white;
+  border: 1px solid rgb(116, 255, 116);
+  border-radius: 4px;
+}
+
+.item-name {
+  font-size: 14px;
+  width: 280px;
+  height: 60px;
 }
