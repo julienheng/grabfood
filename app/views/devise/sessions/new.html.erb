@@ -1,29 +1,40 @@
-<div class="big-container">
-  <h1 class="text-center">Login to Your Account</h1>
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs container1">
-      <div class="sign_in">
-        <%= f.input :email,
-                  required: true,
-                  autofocus: false,
-                  input_html: { autocomplete: "email" }%>
+<body id="login-page">
+
+  <div class="main-container-login">
+    <div class="second-container-login">
+
+      <div class="img-login 'mx-auto d-block'">
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <%= image_tag "snatch_food", width: 100 %>
+        <% end %>
       </div>
-      <div class="sign_in">
-        <%= f.input :password,
-                  required: true,
-                  input_html: { autocomplete: "current-password" }, class: 'signin' %>
-        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-      </div>
+
+      <p class="text-login">Login to Your Account</p>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-inputs-login">
+          <div class="sign_in">
+            <%= f.input :email,
+                      required: true,
+                      autofocus: false,
+                      input_html: { autocomplete: "email" }%>
+          </div>
+          <div class="sign_in">
+            <%= f.input :password,
+                      required: true,
+                      input_html: { autocomplete: "current-password" }, class: 'signin' %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
+        </div>
+
+        <div class="form-actions-login">
+          <%= f.button :submit, "Log in", class: 'submit' %>
+        </div>
+
+        <div class="sign_up">
+          <%= render "devise/shared/links", class: 'sign_up' %>
+        </div>
+
+      <% end %>
     </div>
-
-    <div class="form-actions1 container1">
-      <%= f.button :submit, "Log in", class: 'submit' %>
-    </div>
-
-    <div class="sign_up">
-      <%= render "devise/shared/links", class: 'sign_up' %>
-    </div>
-
-  <% end %>
-
-</div>
+  </div>
+</body>
