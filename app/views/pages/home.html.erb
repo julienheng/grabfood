@@ -12,45 +12,30 @@
 
   </head>
 
-
-  <div class="location-container">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/3298057/pexels-photo-3298057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);">
     <div class="location-greeting">
       <p>Good Evening</p>
     </div>
     <div class="location-description">
       <p>Let's explore good food around you</p>
     </div>
-    <%# <div class="search-bar">
-      <input type="text" class="location-bar" placeholder="Search location">
-      <button type="button" class="btn btn-success">Success</button>
-    </div> %>
-    <%# <div class="search-bar">
-      <input type="text" class="search-dish" placeholder="search for dish or a restaurant">
-      <button type="button" class="btn btn-success">Search</button>
-    </div> %>
 
-<%# <div class="d-flex align-items-center p10">
-  <form class="d-flex">
-    <input class="form-control me-1" type="search" placeholder="search for dish or a restaurant" aria-label="Search">
-    <button class="btn btn-primary" type="submit">Search</button>
-  </form>
-</div> %>
 
-<%= form_with url: root_path, method: :get, class: "d-flex search-bar" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find Your Favourite Restaurant, Cuisine and Dish"
-  %>
-  <%= submit_tag "Search", class: "btn btn-success search-button" %>
-  <% end %>
-<br>
-
+  <%= form_with url: root_path, method: :get, class: "d-flex search-bar" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find Your Favourite Restaurant, Cuisine and Dish"
+    %>
+    <%= submit_tag "Search", class: "btn btn-success search-button" %>
+    <% end %>
+  <br>
+</div>
 
 <div class="row">
   <% @restaurants.each do |restaurant|%>
-    <div class="col-sm-3 d-flex" >
-      <div class="card border p-3 border-success">
+    <div class="col-sm-2 d-flex" >
+      <div class="card border p-3 border-success border_items">
         <div class="card-img-top"><%= image_tag "fish.jpg" %></div>
         <div class="card-body d-flex flex-column">
           <div class="card-title"><h4><%= link_to restaurant.name, restaurant_path(restaurant) %></h4></div>

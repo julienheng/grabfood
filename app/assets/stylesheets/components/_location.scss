@@ -19,6 +19,26 @@
 //   padding: 6px 48px;
 // }
 
+// --------Below is banner code---
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 300px 0;
+  padding-left: 20px;
+}
+.banner p {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  font-size: 40px;
+  font-weight: bold;
+  // opacity: .7;
+  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+
+// -------banner code until here----
+
 .search-bar {
   width: 50%;
 }
@@ -43,24 +63,24 @@
 //   padding: 6px 48px;
 // }
 
-.location-description {
-  height: 80px;
-  width: 400px;
-  p {
-    font-size: 24px;
-    font-family: Open-Sans;
-    font-weight: bold;
-  }
-}
+// .location-description {
+//   height: 80px;
+//   width: 400px;
+//   p {
+//     font-size: 24px;
+//     font-family: Open-Sans;
+//     font-weight: bold;
+//   }
+// }
 
-.location-greeting {
-  height: 28px;
-  width: 400px;
-  p {
-    font-size: 20px;
-    font-family: Open-Sans;
-  }
-}
+// .location-greeting {
+//   height: 28px;
+//   width: 400px;
+//   p {
+//     font-size: 20px;
+//     font-family: Open-Sans;
+//   }
+// }
 
 .btn-success {
   // position: absolute;
@@ -72,4 +92,12 @@
 h1 {
   font-size: 40px !important;
   text-align: center;
+}
+
+.row {
+  padding-top: 10px;
+}
+
+.border_items {
+  padding-top: 10px;
 }
