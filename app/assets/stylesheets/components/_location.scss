@@ -29,17 +29,13 @@
 .banner p {
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
   font-size: 40px;
   font-weight: bold;
+  // opacity: .7;
+  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-.banner p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
 
 // -------banner code until here----
 
@@ -67,24 +63,24 @@
 //   padding: 6px 48px;
 // }
 
-.location-description {
-  height: 80px;
-  width: 400px;
-  p {
-    font-size: 24px;
-    font-family: Open-Sans;
-    font-weight: bold;
-  }
-}
+// .location-description {
+//   height: 80px;
+//   width: 400px;
+//   p {
+//     font-size: 24px;
+//     font-family: Open-Sans;
+//     font-weight: bold;
+//   }
+// }
 
-.location-greeting {
-  height: 28px;
-  width: 400px;
-  p {
-    font-size: 20px;
-    font-family: Open-Sans;
-  }
-}
+// .location-greeting {
+//   height: 28px;
+//   width: 400px;
+//   p {
+//     font-size: 20px;
+//     font-family: Open-Sans;
+//   }
+// }
 
 .btn-success {
   // position: absolute;
