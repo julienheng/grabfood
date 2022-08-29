@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.restaurant = Restaurant.find(params[:restaurant_id])
+
     if @item.save
       redirect_to restaurant_path(@item.restaurant)
     else

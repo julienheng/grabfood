@@ -11,7 +11,7 @@
 
       <p class="text-login">Login to Your Account</p>
 
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
         <div class="form-inputs-login">
           <div class="sign_in">
             <%= f.input :email,

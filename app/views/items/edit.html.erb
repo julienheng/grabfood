@@ -7,14 +7,17 @@
     </div>
   </div>
 
+
   <div class="content">
     <div class="container p-5 rounded mt-3 text-start">
       <%= simple_form_for [@restaurant, @item] do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
         <%= f.input :price %>
+        <%= f.input :photo, as: :file %>
         <%= f.submit %>
       <% end %>
     </div>
   </div>
+
 </div>
