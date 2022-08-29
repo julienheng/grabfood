@@ -1,0 +1,13 @@
+<%= link_to restaurant_path(restaurant), class: "text-decoration-none text_color" do %>
+  <div class="card border p-3 border-success border_items">
+    <div class="card-img-top"><%= image_tag "burger_queen_250" %></div>
+
+    <div class="card-body">
+      <div class="card-title"><h4><%= restaurant.name %></h4></div>
+      <div class="card-subtitle mb-auto text-muted"><p>Cuisine: <%= restaurant.category %></p></div>
+      <div class="card-text mb-auto"><p>Location: <%= restaurant.location %></p></div>
+      <div class="card-text mb-auto"><p>Opening Hour: <%= restaurant.opening_hour %></p></div>
+      <div class="card-text mb-auto"><p>Closing Hour: <%= restaurant.closing_hour %></p></div>
+    </div>
+  </div>
+<% end %>
