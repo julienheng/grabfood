@@ -1,23 +1,23 @@
 <%# <h1>BUYER SHOW PAGE </h1> %>
 <%# restaurant banner details %>
 <div class="banner_buyer_show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1651166/pexels-photo-1651166.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);">
-  <div class="header">
+  <div class="header_user_show">
     <p id= "user_show_font"><%= link_to 'Home', root_path, class: "text-decoration-none btn btn-outline-light"  %> </p>
     <p id= "user_show_font">Restaurant Name: <%= @restaurant.name %></p>
     <div class="restaurant-details">
       <%# <h2 id= "user_show_font"><strong><%= @restaurant.name %></strong></h2>
       <p id= "user_show_font">Location: <%= @restaurant.location %></p>
-      <p id= "user_show_font">Category: <%= @restaurant.category %></p>
+      <p id= "user_show_font">Cuisine: <%= @restaurant.category %></p>
     </div>
 
-    <% if user_signed_in? %>
-      <%= link_to "View Confirmation", order_path(@order), class: "btn btn-success"%>
-    <% end %>
+    <%# <% if user_signed_in? %>
+      <%# <%= link_to "View Confirmation", order_path(@order), class: "btn btn-success"%>
+    <%# <% end %>
   </div>
 </div>
 
 <%# item cards %>
-<div class="row">
+<div class="d-flex flex-wrap justify-content-center gap-4 px-1 mt-4 row">
   <% @restaurant.items.each do |item| %>
       <div class="col-sm-3 d-flex">
         <div class="card border p-3 border-success">

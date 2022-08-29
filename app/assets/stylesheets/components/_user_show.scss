@@ -3,6 +3,7 @@
   background-position: center;
   padding: 200px 0;
   padding-left: 20px;
+  text-align: center;
 }
 #user_show_font {
   margin: 0;
@@ -14,4 +15,16 @@
 
 .banner_buyer_show h2 {
   color: white;
+}
+
+.text_color {
+  color : black;
+}
+
+.last_step_checkout {
+  border-style: dashed solid;
+}
+
+.delivery_status {
+  align-self: center;
 }

@@ -1,18 +1,23 @@
-<div class="dashboard">
-  <div class="restaurant-header">
-    <h1><strong><%= @restaurant.name %></strong></h1>
-    <h3>Update Your Item</h3>
-    <%= link_to "Food Dashboard", restaurant_path(@restaurant) %> | <%= link_to "Back to Homepage", root_path %>
+<div class="body">
+  <div class="dashboard">
+    <div class="restaurant-header">
+      <h1><strong><%= @restaurant.name %></strong></h1>
+      <h3>Update Your Item</h3>
+      <%= link_to "Food Dashboard", restaurant_path(@restaurant), class: "text-decoration-none text-black" %> | <%= link_to "Back to Homepage", root_path, class: "text-decoration-none text-black" %>
+    </div>
   </div>
-</div>
 
 
-<div class="container p-5 rounded mt-3 text-start">
-  <%= simple_form_for [@restaurant, @item] do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :price %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit %>
-  <% end %>
+  <div class="content">
+    <div class="container p-5 rounded mt-3 text-start">
+      <%= simple_form_for [@restaurant, @item] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :price %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+
 </div>
