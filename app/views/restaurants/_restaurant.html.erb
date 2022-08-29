@@ -1,6 +1,6 @@
 <%= link_to restaurant_path(restaurant), class: "text-decoration-none text_color" do %>
   <div class="card border p-3 border-success border_items">
-    <div class="card-img-top"><%= image_tag "burger_queen_250" %></div>
+    <div class="card-img-top"><%= cl_image_tag restaurant.photo.key, height: 200, width: 200, crop: :fill %></div>
 
     <div class="card-body">
       <div class="card-title"><h4><%= restaurant.name %></h4></div>
@@ -10,4 +10,5 @@
       <div class="card-text mb-auto"><p>Closing Hour: <%= restaurant.closing_hour %></p></div>
     </div>
   </div>
+
 <% end %>

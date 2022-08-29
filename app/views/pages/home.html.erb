@@ -1,10 +1,10 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/3298057/pexels-photo-3298057.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);">
-    <div class="location-greeting">
-      <p>Good Evening</p>
-    </div>
-    <div class="location-description">
-      <p>Let's explore good food around you</p>
-    </div>
+  <div class="location-greeting">
+    <p>Good Evening</p>
+  </div>
+  <div class="location-description">
+    <p>Let's explore good food around you</p>
+  </div>
 
 
   <%= form_with url: root_path, method: :get, class: "d-flex search-bar" do %>
@@ -18,19 +18,19 @@
   <br>
 </div>
 
-<div class="d-flex flex-wrap justify-content-center gap-4 px-1 mt-4 item_card">
-  <% @restaurants.each do |restaurant|%>
-    <%= render restaurant %>
-  <% end %>
-</div>
+    <div class="d-flex flex-wrap justify-content-center gap-4 px-1 mt-4 item_card">
+      <% @restaurants.each do |restaurant|%>
+        <%= render restaurant %>
+      <% end %>
+    </div>
 
-<div class="footer">
-  <div class="footer-links">
-    <%# <a href="https://food.grab.com/sg/en/"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/GrabFoodSG"><i class="fab fa-facebook"></i></a>
-    <a href="https://food.grab.com/sg/en/"><i class="fab fa-twitter"></i></a> %>
+  <div class="footer">
+    <div class="footer-links">
+      <%# <a href="https://food.grab.com/sg/en/"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/GrabFoodSG"><i class="fab fa-facebook"></i></a>
+      <a href="https://food.grab.com/sg/en/"><i class="fab fa-twitter"></i></a> %>
+    </div>
+    <div class="footer-copyright">
+      Made with <i class="fas fa-heart"></i> from Snatch Food Team
+    </div>
   </div>
-  <div class="footer-copyright">
-    Made with <i class="fas fa-heart"></i> from Snatch Food Team
-  </div>
-</div>
