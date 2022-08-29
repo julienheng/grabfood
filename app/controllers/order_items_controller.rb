@@ -11,11 +11,25 @@ class OrderItemsController < ApplicationController
     @order_item.order = @order
     authorize @order_item
 
-    if @order_item.save
-      flash.alert = "Item Added To Order!"
-      redirect_to restaurant_path(@restaurant, order: @order)
+    respond_to do |format|
+      if @order_item.save
+        format.html do
+          flash.alert = "Item Added To Order!"
+          redirect_to restaurant_path(@restaurant, order: @order)
+        end
+
+        format.json
+      end
     end
   end
+
+  def update
+    @order_item = OrderItem.find(params[:id])
+    @order_item.update(order_item_params)
+    authorize @order_item
+    @order_item.save
+  end
+
 
   private
 

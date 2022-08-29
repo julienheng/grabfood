@@ -6,3 +6,6 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import InsertInCountController from "./insert_in_count_controller"
+application.register("insert-in-count", InsertInCountController)
