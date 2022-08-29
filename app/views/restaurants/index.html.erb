@@ -1,9 +1,8 @@
 <div class="body">
-  <div class="dashboard">
-    <img src="ingredients_sstock.jpg" alt="">
-    <div class="restaurant-header">
+  <div class="banner" style="background-image: url(https://i0.wp.com/diplomartbrussels.com/wp-content/uploads/2020/09/food-background-images-94-images-in-co-381169-png-images-pngio-food-background-png-1440_619.png?fit=1440%2C619&ssl=1);">
+    <div class="restaurant-header justify-content-center text-center">
       <h1><strong>Welcome to your Restaurant Page</strong></h1>
-      <p class="newpage"><%= link_to "Create a new restaurant", new_restaurant_path(@restaurant)%></p>
+      <h2><%= link_to "Create a new restaurant", new_restaurant_path(@restaurant)%></h2>
     </div>
   </div>
 
@@ -19,4 +18,3 @@
       <% end %>
     </div>
   </div>
-</div>
