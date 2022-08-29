@@ -7,7 +7,7 @@
       <br>
         <div class = "last_step_checkout">
           <h1><b>Last Step - Checkout</b></h1>
-          <h2>Delivery to:</h2>
+          <h2>Deliver to:</h2>
           <%= @order.user.address %>
         </div>
       <br>
@@ -55,9 +55,11 @@ final_amt = total_amt * total_quantity  %>
         <%= link_to "Place order", root_path, :data => {:confirm => 'Are you sure?'}, class: "btn btn-success" %>
         <br>
         <br>
-        <%= simple_form_for(@order) do |f| %>
-          <p><b>Delivery status:</b><%= f.input :delivered %></p>
-        <% end %>
+        <div class = "delivery_status">
+          <%= simple_form_for(@order) do |f| %>
+            <p><b>Delivery status:</b><%= f.input :delivered %></p>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
