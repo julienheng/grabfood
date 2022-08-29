@@ -5,27 +5,28 @@
       <%= image_tag "snatch_food_white.png" %>
       <br>
       <br>
-      <div class = "last_step_checkout">
-        <h1>Last Step - Checkout</h1>
-        <h2>Delivery to:</h2>
-        <%= @order.user.address %>
-      </div>
+        <div class = "last_step_checkout">
+          <h1><b>Last Step - Checkout</b></h1>
+          <h2>Delivery to:</h2>
+          <%= @order.user.address %>
+        </div>
+      <br>
     </div>
 
     <div class = "border border-4">
       <div class = "order_summary">
-        <h2>Order Summary</h2>
+        <h2><b>Order Summary</b></h2>
         <br>
-        <p>Customer Name: <%= @order.user.name %></p>
-        <p>Email: <%= @order.user.email %></p>
-        <p>Phone: <%= @order.user.phone %></p>
-        <p>Delivery date: <%= @order.delivery_date %></p>
-        <p>Delivery time: <%= Time.now %> </p>
+        <p><b>Customer Name:</b> <%= @order.user.name %></p>
+        <p><b>Email:</b> <%= @order.user.email %></p>
+        <p><b>Phone: </b><%= @order.user.phone %></p>
+        <p><b>Delivery date: </b><%= @order.delivery_date %></p>
+        <p><b>Delivery time: </b><%= Time.now %> </p>
       </div>
 
       <% @order.order_items.each do |order_item| %>
         <div>
-          Name: <%= order_item.item.name %> | Quantity: <%= order_item.quantity %>
+          <b>Name:</b> <%= order_item.item.name %> | <b>Quantity:</b> <%= order_item.quantity %>
         </div>
       <% end %>
 <%# sum = 0 %>
@@ -45,9 +46,9 @@ final_amt = total_amt * total_quantity  %>
 <%# (order_item * quantity)  %>
 
       <div class="delivery_details">
-        <p>Payment details</p>
-        <p>Total: $<%= @sum %></p>
-        <p>Payment details: By cash</p>
+        <p><b>Payment details</b></p>
+        <p><b>Total:</b> $<%= @sum %></p>
+        <p><b>Payment details:</b> By cash</p>
         <p>Cash on Delivery</p>
 
         <%#= link_to "Edit order", orders_path(@order), class: "btn btn-primary" %>
@@ -55,7 +56,7 @@ final_amt = total_amt * total_quantity  %>
         <br>
         <br>
         <%= simple_form_for(@order) do |f| %>
-          <p>Delivery status:<%= f.input :delivered %></p>
+          <p><b>Delivery status:</b><%= f.input :delivered %></p>
         <% end %>
       </div>
     </div>
