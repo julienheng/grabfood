@@ -10,14 +10,14 @@
       <p id= "user_show_font">Category: <%= @restaurant.category %></p>
     </div>
 
-    <% if user_signed_in? %>
-      <%= link_to "View Confirmation", order_path(@order), class: "btn btn-success"%>
-    <% end %>
+    <%# <% if user_signed_in? %>
+      <%# <%= link_to "View Confirmation", order_path(@order), class: "btn btn-success"%>
+    <%# <% end %>
   </div>
 </div>
 
 <%# item cards %>
-<div class="row">
+<div class="d-flex flex-wrap justify-content-center gap-4 px-1 mt-4 row">
   <% @restaurant.items.each do |item| %>
       <div class="col-sm-3 d-flex">
         <div class="card border p-3 border-success">
