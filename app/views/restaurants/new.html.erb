@@ -1,18 +1,15 @@
-
-<body id="restaurant-create">
-
-
+<div class="body">
   <div class="dashboard">
-    <div class="create-restaurant-header">
-      <h1><strong>Create your own Restaurant Profile</strong></h1>
+    <div class="restaurant-header">
+      <h1><strong>Create My Restaurant Profile</strong></h1>
       <p><em>We are as excited as you</em></p>
-      <%= link_to "Back to Homepage", root_path %>
+      <%= link_to "Back to Homepage", root_path, class: "text-decoration-none text-black" %>
     </div>
   </div>
 
 
-
-  <div class="create-res-container p-5 rounded mt-3 text-start">
+  <div class="content">
+    <div class="container p-5 rounded mt-3 text-start">
     <%= simple_form_for(@restaurant) do |f| %>
       <%= f.input :name %>
       <%= f.input :location %>
@@ -22,5 +19,6 @@
       <%= f.input :photo, as: :file %>
       <%= f.submit %>
     <% end %>
+    </div>
   </div>
-</body>
+</div>

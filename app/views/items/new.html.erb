@@ -1,18 +1,14 @@
-
-<body id="create-item">
-
-
+<div class="body">
   <div class="dashboard">
-    <div class="create-item-header">
-      <h1><strong>Let's Create Your Menu</strong></h1>
+    <div class="restaurant-header">
+      <h1><strong>Let's Create My Menu</strong></h1>
       <p><em>Fixing your customer's hunger</em></p>
-      <%= link_to "Food Dashboard", restaurant_path(@restaurant) %> | <%= link_to "Back to Homepage", root_path %>
+      <%= link_to "Food Dashboard", restaurant_path(@restaurant), class: "text-decoration-none text-black" %> | <%= link_to "Back to Homepage", root_path, class: "text-decoration-none text-black" %>
     </div>
   </div>
 
-    <%# <h1>Let's create your menu</h1> %>
-
-    <div class="create-item-container p-5 rounded mt-3 text-start">
+  <div class="content">
+    <div class="container p-5 rounded mt-3 text-start">
       <%= simple_form_for [@restaurant, @item] do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
@@ -21,5 +17,5 @@
         <%= f.submit %>
       <% end %>
     </div>
-
-</body>
+  </div>
+</div>
