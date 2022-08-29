@@ -22,18 +22,30 @@
   color: black;
 }
 
+.details {
+  width: 100%;
+}
+
+.target-items {
+  width: 100%;
+}
+
 .detail {
   width: 320px;
   height: 360px;
   background-color: white;
   border: 1px solid rgb(116, 255, 116);
   border-radius: 4px;
+  box-shadow: 0 0 4px 0 #9b9b9b;
 }
 
 .links {
   color: green;
 }
 
+.content {
+  background-color: #02b04e;
+}
 
 .card-restaurant {
   width: 320px;
@@ -58,6 +70,7 @@
   padding: 0px 50px;
   color: rgb(255, 255, 255);
   margin-top: 20px;
+
 }
 .footer-links {
   display: flex;
@@ -74,5 +87,5 @@
   opacity: 1;
 }
 .footer .fa-heart {
-  color: #D23333;
+  color: #d23333;
 }
