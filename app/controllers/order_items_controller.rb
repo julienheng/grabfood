@@ -12,7 +12,7 @@ class OrderItemsController < ApplicationController
     authorize @order_item
 
     if @order_item.save
-      flash.alert = "Item Added To Order!"
+      flash.alert = "#{@order_item.item.name} x #{@order_item.quantity} Added To Order!"
       redirect_to restaurant_path(@restaurant, order: @order)
     end
   end
