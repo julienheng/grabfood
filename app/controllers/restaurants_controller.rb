@@ -19,7 +19,7 @@ class RestaurantsController < ApplicationController
     authorize @restaurant
 
     if @restaurant.save
-      redirect_to restaurants_path()
+      redirect_to restaurants_path
     else
       render :new, status: :unprocessable_entity
     end

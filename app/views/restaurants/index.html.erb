@@ -12,6 +12,9 @@
         <div class="detail boader p-3 border-success col-6 col-md-4 col-lg-3">
           <div class="detail-img text-center pb-3"><%= image_tag "fish.jpg" %></div>
             <p>Name: <%= link_to restaurant.name, restaurant_path(restaurant) %></p>
+            <% if restaurant.photo.attached? %>
+              <%= cl_image_tag restaurant.photo.key, height: 300, width: 400, crop: :fill %>
+            <% end %>
             <p>Location: <%= restaurant.location %></p>
             <p>Category: <%= restaurant.category %></p>
         </div>
