@@ -30,7 +30,6 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
 
     if user_signed_in?
-      # render current_user.is_seller ? 'restaurants/show_seller' : 'restaurants/show'
       if !current_user.is_seller?
         @order_item = OrderItem.new
         @order = Order.find(params[:order]) if !@order.nil?
@@ -74,7 +73,7 @@ class RestaurantsController < ApplicationController
 
   def destroy
     authorize @restaurant
-    @restaurant = Restaurant.destroy
+    @restaurant.destroy
     redirect_to restaurants_path, status: :see_other
   end
 

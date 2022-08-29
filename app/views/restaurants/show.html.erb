@@ -21,7 +21,11 @@
   <% @restaurant.items.each do |item| %>
       <div class="col-sm-3 d-flex">
         <div class="card border p-3 border-success">
-          <div class="card-img-top"><%= image_tag "fish.jpg" %></div>
+          <div class="card-img-top">
+            <% if item.photo.attached? %>
+              <%= cl_image_tag item.photo.key, height: 200, width: 200, crop: :fill %>
+            <% end %>
+          </div>
           <div class="card-body d-flex flex-column">
             <div class="card-title"><h4><%= item.name %></h4></div>
             <div class="card-text mb-auto"><p><%= item.description %></p></div>

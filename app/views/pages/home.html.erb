@@ -36,7 +36,7 @@
   <% @restaurants.each do |restaurant|%>
     <div class="col-lg-2 d-flex" >
       <div class="card border p-3 border-success border_items">
-        <div class="card-img-top"><%= image_tag "burger_queen_250" %></div>
+        <div class="card-img-top"><%= cl_image_tag restaurant.photo.key, height: 200, width: 200, crop: :fill %></div>
         <div class="card-body d-flex flex-column">
           <div class="card-title"><h4><%= link_to restaurant.name, restaurant_path(restaurant) %></h4></div>
           <div class="card-subtitle mb-auto text-muted"><p>Cuisine: <%= restaurant.category %></p></div>

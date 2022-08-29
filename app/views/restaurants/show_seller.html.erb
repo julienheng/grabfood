@@ -13,13 +13,19 @@
     <div class="target-items row gap-3 pt-3 justify-content-center text-center">
       <% @restaurant.items.each do |item| %>
           <%# <% restaurant.items.each do |item| %>
+
             <div class="card-restaurant boader p-3 border-success col-6 col-md-4 col-lg-3">
-              <div class="card-img"><%= image_tag "fish.jpg" %></div>
+              <div class="card-img">
+                <% if item.photo.attached? %>
+                  <%= cl_image_tag item.photo.key, height: 200, width: 200, crop: :fill %>
+                <% end %>
+              </div>
               <h4 class="name mt-4"><%= item.name %></h4>
               <p class="item-name"><%= item.description %></p>
               <p class="price">$<%= item.price %></p>
               <div>
-                <%= link_to "Edit", edit_restaurant_item_path(@restaurant, item) %> | <%= link_to "Delete", restaurant_item_path(@restaurant, item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+                <%= link_to "Edit", edit_restaurant_item_path(@restaurant, item) %> |
+                <%= link_to "Delete", restaurant_item_path(@restaurant, item), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
               </div>
             </div>
       <% end %>
