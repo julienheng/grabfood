@@ -9,6 +9,7 @@
       <p id= "user_show_font">Location: <%= @restaurant.location %></p>
       <p id= "user_show_font">Category: <%= @restaurant.category %></p>
     </div>
+
     <% if user_signed_in? %>
       <%= link_to "View Confirmation", order_path(@order), class: "btn btn-success"%>
     <% end %>

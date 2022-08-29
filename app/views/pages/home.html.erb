@@ -39,12 +39,23 @@
         <div class="card-img-top"><%= image_tag "burger_queen_250" %></div>
         <div class="card-body d-flex flex-column">
           <div class="card-title"><h4><%= link_to restaurant.name, restaurant_path(restaurant) %></h4></div>
-          <div class="card-subtitle mb-auto text-muted"><p><%= restaurant.category %></p></div>
-          <div class="card-text mb-auto"><p><%= restaurant.location %></p></div>
+          <div class="card-subtitle mb-auto text-muted"><p>Cuisine: <%= restaurant.category %></p></div>
+          <div class="card-text mb-auto"><p>Location: <%= restaurant.location %></p></div>
           <div class="card-text mb-auto"><p>Opening Hour: <%= restaurant.opening_hour %></p></div>
           <div class="card-text mb-auto"><p>Closing Hour: <%= restaurant.closing_hour %></p></div>
         </div>
       </div>
     </div>
   <% end %>
+</div>
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://food.grab.com/sg/en/"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/GrabFoodSG"><i class="fab fa-facebook"></i></a>
+    <a href="https://food.grab.com/sg/en/"><i class="fab fa-twitter"></i></a>
+  </div>
+  <div class="footer-copyright">
+    Made with <i class="fas fa-heart"></i> from Snatch Food Team
+  </div>
 </div>

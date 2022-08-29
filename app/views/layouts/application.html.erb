@@ -16,9 +16,14 @@
   <%# <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
   <%# <%= Julien, rmb to remove the log out button %>
 
+
+
+  <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_password_path) %>
     <%= render "shared/navbar" %>
+  <% end %>
+
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="alert p-0 mt-0"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

@@ -1,36 +1,36 @@
-body#pass-page {
+body#signup-page {
   background-color: #00b24f;
 }
 
-.main-container-password {
+.main-container-signup {
   background-color: white;
   width: 60vw;
-  height: 100vh;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.second-container-password {
+.second-container-signup {
   width: 500px;
   margin: 0 auto;
 
-  h1 {
+  .text-signup {
     color: #00b24f;
+    text-align: center;
   }
 
-  .img-password {
-    margin: 0 auto;
+  .img-signup {
+    margin: 0 200px;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-
 }
 
-.form-inputs-password {
+.form-inputs-signup {
   width: 300px;
   margin: 0 auto;
 
@@ -39,22 +39,31 @@ body#pass-page {
   }
 }
 
-.form-actions-password {
+.form-actions-signup {
   margin: 0 auto;
+  border: 1px solid #00b24f;
+  border-radius: 30px;
+  background-color: #00b24f;
   text-align: center;
+  width: 100px;
+  margin-bottom: 20px;
+}
 
+.signup-button {
+  font-weight: bolder;
+  color: white;
+  border: none;
   :hover {
-    color:#00b24f
+    color: black ;
   }
 }
 
-.link-password {
+.link-signup {
   text-align: center;
 
   a {
     text-decoration: none;
   }
-
   a:hover {
     color: #00b24f;
   }

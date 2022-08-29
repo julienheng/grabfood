@@ -1,0 +1,28 @@
+body#create-item {
+  background-color: #00b24f;
+}
+
+.create-item-container {
+  margin: auto;
+  width: 400px;
+  background-color: white;
+
+  input {
+    border-radius: 30px;
+  }
+}
+
+.dashboard {
+  width: 700px;
+  height: 100px
+
+}
+
+.create-item-header {
+  margin: 50px 0px;
+  p {
+    font-size: 30px;
+    text-align: center;
+    color: #00b24f;
+  }
+}
